@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+<head>
+  {% block title %}Welcome to Realty Utopia{% endblock %}
+
+<body>
+  {% block content %}
+
+  <section class="property-hero">
+    <div class="property-hero-content">
+      <h1>Discover Your Dream Home with Realty Utopia</h1>
+      <p>Filter your search to explore properties perfectly suited to your needs.</p>
+
+      <form class="property-search-form" action="{%  url 'property_list' %}" method="GET"
+        onsubmit="clearReadonlyInputs()">
+        <!-- Location -->
+        <select name="location" class="black">
+          <option value="" disabled selected>Select Location</option>
+          {% for loc in locations %}
+          <option value="{{ loc.id }}">{{ loc.name }}</option>
+          {% endfor %}
+        </select>
+
+        <!-- Property Name -->
+        <select name="property_name">
+          <option value="">Select Property</option>
+          {% for p in properties %}
+          <option value="{{ p.title }}">{{ p.title }}</option>
+          {% endfor %}
+        </select>
+
+        <!-- Developer -->
+        <select name="developer">
+          <option value="">Select Developer</option>
+          {% for d in developers %}
+          <option value="{{ d.name }}">{{ d.name }}</option>
+          {% endfor %}
+        </select>
+
+        <!-- Price Range -->
+        <select name="price_range" class="black">
+          <option value="" disabled selected>Select Price Range</option>
+          <option value="0-50000">Below AED 50,000</option>
+          <option value="50000-100000">AED 50,000 - AED 100,000</option>
+          <option value="100001-200000">AED 100,001 - AED 200,000</option>
+          <option value="200001-500000">AED 200,001 - AED 500,000</option>
+          <option value="500001-">AED 500,001+</option>
+        </select>
+
+        <!-- Property Type -->
+        <select name="property_type" class="black">
+          <option value="" disabled selected>Select Property Type</option>
+          {% for pt in property_types %}
+          <option value="{{ pt.id }}">{{ pt.name }}</option>
+          {% endfor %}
+        </select>
+
+        <!-- Property Status -->
+        <select name="property_status" class="black">
+          <option value="" disabled selected>Select Property Status</option>
+          {% for ps in property_statuses %}
+          <option value="{{ ps.id }}">{{ ps.name }}</option>
+          {% endfor %}
+        </select>
+
+        <div class="buttons-wrapper">
+          <button type="submit" class="search-button">Search</button>
+          <button type="reset" class="reset-button" onclick="resetFilters()">Reset</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <div class="div">
+    <div class="list-prop-wrapper">
+      <!-- LEFT: Filter -->
+      <div class="location">
+        <div class="location-filter">
+          <div class="filter-list">
+
+            <!-- Developer Filter -->
+            <div class="filter-group">
+              <h4>Developer</h4>
+              <div class="filter-list" id="developer-list">
+                {% for d in developers %}
+                <a href="?developer={{ d.name }}"
+                  class="filter-item{% if forloop.counter > 7 %} hidden extra-developers{% endif %}">
+                  {{ d.name }}
+                </a>
+                {% endfor %}
+
+                {% if developers|length > 7 %}
+                <button class="more-btn" onclick="showNext('developers')">+ More</button>
+                {% endif %}
+
+                <div class="reset-filter-wrapper">
+                  <a href="{% url 'property_list' %}" class="reset-btn">Reset Filters</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Location Filter -->
+            <div class="filter-group">
+              <h4>Location</h4>
+              <div class="filter-list" id="location-list">
+                {% for loc in locations %}
+                <a href="?location={{ loc.id }}"
+                  class="filter-item{% if forloop.counter > 7 %} hidden extra-locations{% endif %}">
+                  {{ loc.name }}
+                </a>
+                {% endfor %}
+
+                {% if locations|length > 7 %}
+                <button class="more-btn" onclick="showNext('locations', this)">+ More</button>
+                {% endif %}
+
+                <div class="reset-filter-wrapper">
+                  <a href="{% url 'property_list' %}" class="reset-btn">Reset Filters</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Property Name Filter -->
+            <div class="filter-group">
+              <h4>Property</h4>
+              <div class="filter-list" id="property-list">
+                {% for p in properties %}
+                <a href="?property_name={{ p.title }}"
+                  class="filter-item{% if forloop.counter > 7 %} hidden extra-properties{% endif %}">
+                  {{ p.title }}
+                </a>
+                {% endfor %}
+
+                {% if properties|length > 7 %}
+                <button class="more-btn" onclick="showNext('properties', this)">+ More</button>
+                {% endif %}
+
+                <div class="reset-filter-wrapper">
+                  <a href="{% url 'property_list' %}" class="reset-btn">Reset Filters</a>
+                </div>
+              </div>
+            </div>
+
+          </div> <!-- end .filter-list -->
+        </div> <!-- end .location-filter -->
+      </div> <!-- end .location -->
+
+      <!-- RIGHT: Property Grid -->
+      <div class="property-grid container">
+        {% for prop in page_obj %}
+        <div class="property-card">
+          <!-- LEFT: Image -->
+          <div class="card-image" style="background-image: url('{{ prop.cover }}');">
+            <div class="tag">{{ prop.property_type.name }}</div>
+            <div class="date">{{ prop.delivery_date }}</div>
+            <div class="type">{{ prop.property_status.name }}</div>
+          </div>
+
+          <!-- RIGHT: Content -->
+          <div class="card-body">
+            <div class="price">AED {{ prop.low_price|intcomma }}</div>
+            <div class="type">{{ prop.sales_status.name }}</div>
+            <div class="title">{{ prop.title }}</div>
+            <div class="location">{{ prop.city.name }}/{{ prop.district.name }}</div>
+
+            {% if prop.sales_status.id == 2 %}
+            <div class="description">{{prop.developer.name}} proudly presents {{prop.title}}, an upcoming
+              architectural landmark set to elevate the skyline of {{prop.city.name}}-{{prop.district.name}}. Designed for discerning residents and
+              investors alike, this iconic high-rise will feature elegantly crafted residences with modern layouts,
+              premium finishes, and breathtaking views of the city and canal.</div>
+            {% elif prop.description %}
+            <div class="soon">{{ prop.description|safe|slice:":350" }}...</div>
+            {% endif %}
+
+            <div class="bedrooms">
+              {% for apt in prop.grouped_apartments.all %}
+              {{ apt.rooms }}{% if not forloop.last %}, {% endif %}
+              {% endfor %}
+            </div>
+
+            <!-- View Button -->
+            <div class="view-btn">
+              <a href="{% url 'property_detail' prop.external_id %}" class="view-icon-btn">
+                View details
+                <img src="https://img.icons8.com/?size=100&id=39777&format=png&color=051e3b" alt="View Details" />
+              </a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div> <!-- end .property-grid -->
+    </div> <!-- end .list-prop-wrapper -->
+
+    <!-- Pagination Controls -->
+    <!-- Pagination Controls -->
+    <div class="page">
+      <div class="pagination" style="text-align: center; margin-top: 2rem;">
+        {% with request.GET.urlencode as query_string %}
+        {% if page_obj.has_previous %}
+        <a href="?{% if query_string %}{{ query_string|urlencode }}&{% endif %}page=1">&laquo; First</a>
+        <a
+          href="?{% if query_string %}{{ query_string|urlencode }}&{% endif %}page={{ page_obj.previous_page_number }}">&lsaquo;
+          Prev</a>
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+        <span class="active-page">{{ num }}</span>
+        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %} <a
+          href="?{% if query_string %}{{ query_string|urlencode }}&{% endif %}page={{ num }}">{{ num }}</a>
+          {% endif %}
+          {% endfor %}
+
+          {% if page_obj.has_next %}
+          <a href="?{% if query_string %}{{ query_string|urlencode }}&{% endif %}page={{ page_obj.next_page_number }}">Next
+            &rsaquo;</a>
+          <a
+            href="?{% if query_string %}{{ query_string|urlencode }}&{% endif %}page={{ page_obj.paginator.num_pages }}">Last
+            &raquo;</a>
+          {% endif %}
+          {% endwith %}
+      </div>
+    </div>
+  </div>
+
+  <script src="{% static 'script.js' %}"></script>
+  <script>
+    const counters = {
+      developers: 7,
+      locations: 7,
+      properties: 7
+    };
+
+    function showNext(type) {
+      const allItems = document.querySelectorAll(`.extra-${type}`);
+      const current = counters[type];
+      const next = current + 7;
+
+      for (let i = current; i < next && i < allItems.length; i++) {
+        allItems[i].classList.remove('hidden');
+      }
+
+      counters[type] = next;
+
+      // Hide button if all items are shown
+      if (next >= allItems.length) {
+        event.target.style.display = 'none';
+      }
+    }
+  </script>
+
+  {% endblock %}
+</body>
+
+</html>

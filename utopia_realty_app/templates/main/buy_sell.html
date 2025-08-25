@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% extends 'base.html' %}
+    {% block title %}Welcome to Realty Utopia {% endblock %}
+    {% load static %}
+    {% load humanize %}
+    {% block content %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Buy & Sell - Realty Utopia</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Hero Section -->
+    <section class="buy-sell-hero">
+        <div class="buy-sell-hero-overlay">
+            <div class="buy-sell-hero-content">
+                <h1 class="buy-sell-title">Buy & Sell Properties <br> <span class="highlight">Worldwide with Realty
+                        Utopia</span></h1>
+                <p class="buy-sell-subtitle">Your Global Real Estate Partner for Buying & Selling Homes</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="buy-sell-main ">
+        <section class="buy-desc container">
+            <p>Looking to buy a property internationally or sell your real estate at the best market price? At Realty
+                Utopia Real Estate LLC, we specialize in connecting buyers and sellers across prime real estate markets
+                worldwide. Whether you’re searching for a luxury villa, an investment property, or looking to sell for
+                maximum value, our expert team is here to guide you every step of the way.</p>
+        </section>
+        <section class="buy-section">
+            <h2>Buying a Property – <span class="highlight">Your Dream Home, Anywhere in the World</span></h2>
+            <div class="card-container">
+                <div class="info-card animate-up" data-delay="0">
+                    <i class="fas fa-globe"></i>
+                    <div class="info-content">
+                        <p>Access exclusive global listings: luxury homes, apartments, townhouses, and commercial
+                            spaces.</p>
+                    </div>
+                </div>
+                <div class="info-card animate-up" data-delay="100"><i class="fas fa-search"></i>
+                    <div class="info-content">
+                        <p>Personalized property searches based on your budget, location, and lifestyle preferences.</p>
+                    </div>
+                </div>
+                <div class="info-card animate-up" data-delay="200"><i class="fas fa-chart-line"></i>
+                    <div class="info-content">
+                        <p>Expert real estate consulting to help you make confident investment decisions globally.</p>
+                    </div>
+                </div>
+                <div class="info-card animate-up" data-delay="300"><i class="fas fa-file-contract"></i>
+                    <div class="info-content">
+                        <p>Support with financing, legal processes, and cross-border property transactions worldwide.
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>
+            <p class="section-summary">With our deep market insights and extensive global network, we ensure you get the
+                best value for your investment.</p>
+        </section>
+
+        <section class="sell-section container">
+            <div class="sell-content-container">
+                <div class="sell-image animate-left">
+                    <img src="{% static 'img/sell.jpg' %}" alt="Property marketing visual">
+                </div>
+                <div class="sell-text animate-right">
+                    <h2>Selling Your Property – <span class="highlight">Get the Best Market Price</span></h2>
+                    <li><span class="check-icon">✔</span> Expert negotiation to secure the highest possible offer.</li>
+                    <li><span class="check-icon">✔</span> Professional property valuation to determine competitive
+                        pricing.</li>
+                    <li><span class="check-icon">✔</span> Seamless transaction support – from listing to closing, we
+                        handle it all.</li>
+                    <li><span class="check-icon">✔</span> Global marketing exposure – premium listings, high-quality
+                        visuals, and digital campaigns.
+                    </li>
+                    <p>
+                        At Realty Utopia Real Estate LLC, your property gains maximum visibility in key markets,
+                        ensuring a faster, more profitable sale.
+                    </p>
+                </div>
+
+
+            </div>
+        </section>
+    </main>
+
+    <section class="why-choose-section">
+        <h2 class="section-title">Why Choose <span class="highlight">Realty Utopia ?</span></h2>
+
+        <div class="why-cards-container ">
+            <div class="why-card animate-up" data-delay="0">
+                <span class="check-icon">✨</span>
+                <p><strong>International Reach</strong> – We operate in major real estate markets worldwide.</p>
+            </div>
+
+
+
+            <div class="why-card animate-up" data-delay="200">
+                <span class="check-icon">✨</span>
+                <p><strong>Client-Focused Approach</strong> – Your goals drive our strategy.</p>
+            </div>
+            <div class="why-card animate-up" data-delay="100">
+                <span class="check-icon">✨</span>
+                <p><strong>Extensive Industry Expertise</strong> – Our insights help you make smarter investments.
+                </p>
+            </div>
+            <div class="why-card animate-up" data-delay="300">
+                <span class="check-icon">✨</span>
+                <p><strong>Hassle-Free Transactions</strong> – From property search to deal closure, we manage
+                    everything.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="cta-section container">
+            <h3> Find Your Dream Property or Sell with Confidence!</h3>
+            <p>Contact us today for a free consultation and take the next step in your real estate journey.</p>
+            <a href="#contact" class="cta-button">Get a Free Consultation</a>
+        </div>
+    </section>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.getAttribute('data-delay') || 0;
+                    setTimeout(() => {
+                        entry.target.classList.add('active');
+                    }, parseInt(delay));
+
+                    observer.unobserve(entry.target); // Optional: only animate once
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        document.querySelectorAll('.animate-up, .animate-left, .animate-right').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% extends 'base.html' %}
+    {% block title %}Welcome to Realty Utopia {% endblock %}
+    {% load static %}
+    {% load humanize %}
+    {% block content %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Short-Term Rental - Realty Utopia</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- HERO SECTION -->
+    <section class="short-term-hero">
+        <div class="short-term-hero-content">
+            <h1>Short-Term <span class="highlight">Rentals</span></h1>
+            <p>Luxury & Comfort, Anywhere in the World</p>
+            <a href="#short-term-details" class="short-term-cta-button">Explore Rentals</a>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT SECTION -->
+    <section id="short-term-details" class="short-term-section">
+        <div class="short-term-container">
+            <div class="short-desc">
+                <h2>Short-Term Rentals – Luxury & Comfort, Anywhere in the World</h2>
+                <p>
+                    Looking for a fully furnished short-term rental for business, leisure, or relocation? At Realty
+                    Utopia Real Estate LLC, we offer a premium selection of short-term rental properties in prime
+                    locations worldwide. Whether you need a stylish apartment for a few weeks, a luxury villa for a
+                    vacation, or corporate housing for business travel, we have the perfect solution.</p>
+            </div>
+        </div>
+
+            <div class="short-term-text">
+                <h2> Why Choose Our Short-Term Rentals?</h2>
+
+
+                <ul class="short-term-list">
+
+                    <li class="animate-up" data-delay="0"> <strong>Prime Locations</strong> – Stay in the heart of the city or a peaceful retreat.</li>
+                    <li class="animate-up" data-delay="100"> <strong>Flexible Rental Periods</strong> – Weekly, monthly, or extended stays.</li>
+                    <li class="animate-up" data-delay="200"> <strong>All-Inclusive Services</strong> – Housekeeping, utilities, WiFi, concierge.</li>
+                    <li class="animate-up" data-delay="300"> <strong>Seamless Booking & Secure Transactions</strong> – Easy process with professional
+                        support.</li>
+                    <li class="animate-up" data-delay="400"> <strong>Fully Furnished & Ready to Move In</strong> – Enjoy high-end interiors, modern
+                        amenities, and a hassle-free stay.</li>
+                </ul>
+            </div>
+
+            <div class="perfect container">
+                    <h3>Perfect For Every Lifestyle – Who Benefits from Our Short-Term Rentals?</h3>
+
+                <ul class="perfect-list">
+                    <li>✨ <strong>Business Travelers</strong> – Executive-style amenities.</li>
+                    <li>✨ <strong>Tourists & Vacationers</strong> – Premium homes with privacy.</li>
+                    <li>✨ <strong>Digital Nomads</strong> – Work remotely with all comforts.</li>
+                    <li>✨ <strong>Relocating Families</strong> – A temporary home while settling in.</li>
+                </ul>
+
+            </div>
+            <!-- <div class="short-term-image animate-right">
+                <img src="{% static 'img/shortrental.jpg' %}" alt="Luxury short-term rental property">
+            </div> -->
+
+    </section>
+
+    <section class="cta">
+        <div class="cta-section container">
+            <h3> Find the Perfect Short-Term Rental Today!</h3>
+            <p>Whether you’re looking for a beachfront escape, a city-center apartment, or a countryside retreat, we help you find the ideal rental property worldwide.</p>
+            <a href="#contact" class="cta-button">Get a Free Consultation</a>
+        </div>
+    </section>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.getAttribute('data-delay') || 0;
+                    setTimeout(() => {
+                        entry.target.classList.add('active');
+                    }, parseInt(delay));
+
+                    observer.unobserve(entry.target); // Optional: only animate once
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        document.querySelectorAll('.animate-up, .animate-left, .animate-right').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+    {% endblock %}
+</body>
+
+</html>

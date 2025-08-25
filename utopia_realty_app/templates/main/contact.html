@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% extends 'base.html' %}
+    {% block title %}About Realty Utopia {% endblock %}
+    {% load static %}
+    {% load humanize %}
+    {% block content %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Realty Utopia Real Estate</title>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <section class="contact-banner">
+        <div class="container">
+            <h1>Let's Connect</h1>
+            <p>Have questions or need guidance? Reach out – we’re ready to help you navigate your next move.</p>
+        </div>
+    </section>
+
+    <section class="contact-main">
+        <div class="container contact-wrapper">
+
+
+            <!-- Contact Details -->
+            <div class="contact-details-box">
+                <h3 class="section-heading">Our <span class="highlight">Office</span></h3>
+                <div class="office-details">
+                    <div class="office-address">
+                        <div class="office-img">
+                            <img src="{% static 'img/utopia_logo.png' %}" alt="">
+                        </div>
+                        <p>Dubai Hills Business Park, Building 4, Floor 7,<br>Dubai, UAE.</p>
+                        <div class="phone">
+                            <p><i class="fas fa-phone"></i>+971501815061 </p>
+                            <p><i class="fas fa-phone"></i>+971581097518 </p>
+                            <p><i class="fas fa-envelope"></i> info@realtyutopia.com</p>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/realtyutopiauae"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/realtyutopiauae/#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/realtyutopiauae/"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <!-- Form -->
+            <div class="contact-form-box">
+                <h3 class="section-heading">Send Us a <span class="highlight">Message</span></h3>
+                <form action="#" method="POST">
+                    <input type="text" name="name" placeholder="Enter your name" required />
+                    <input type="text" name="phone" placeholder="Enter your phone" required />
+                    <input type="email" name="email" placeholder="Your Email" required />
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-map">
+        <h2>Location</h2>
+        <div class="container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3609.4660304429285!2d55.27816407483822!3d25.221223830728153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43d7ec5f9b91%3A0xc3591c7895fbbb3e!2sRealty%20Utopia%20Real%20Estate%20LLC!5e0!3m2!1sen!2sin!4v1754982380758!5m2!1sen!2sin"
+                width="600" height="500" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    {% endblock %}
+</body>
+
+</html>

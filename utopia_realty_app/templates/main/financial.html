@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% extends 'base.html' %}
+    {% block title %}Financial Support - Realty Utopia Real Estate{% endblock %}
+    {% load static %}
+    {% load humanize %}
+    {% block content %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+
+    <!-- Hero Section -->
+    <section class="financial-hero">
+        <div class="financial-hero-overlay">
+            <div class="financial-hero-content">
+                <h1 class="financial-title ">Smart Financial Support for <br> <span class="highlight">Confident
+                        Investing</span></h1>
+                <p class="financial-sub">Realty Utopia offers tailored financial services to simplify your real estate
+                    <br> journey and protect your investments at every step.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+
+    <main class="fin-support-main ">
+        <section class="fin-support-desc container">
+            <h2 class="text-center">Financial Support – Comprehensive Solutions for Seamless Investments</h2>
+            <p>At Realty Utopia Real Estate LLC, we offer a range of financial support services to make your real estate
+                transactions as smooth and efficient as possible. Whether you’re a first-time buyer, seasoned investor,
+                or business owner, our team is dedicated to ensuring your investments are secure and hassle-free.</p>
+        </section>
+
+        <section class="fin-support-section">
+            <h2>Off-Plan Properties – <span class="highlight">Early Access to Premium Developments</span></h2>
+            <p class="fin-support-subtitle">Investing in off-plan properties allows you to get ahead of the market. We
+                provide:</p>
+
+            <div class="fin-support-grid">
+
+                <div class="fin-support-card animated-right" data-delay="100">
+                    <div class="fin-support-number">1</div>
+                    <h3>Bank Account Setup</h3>
+                    <p>We assist with setting up bank accounts to ensure smooth transactions for your property purchases or sales.</p>
+                </div>
+
+                <div class="fin-support-card animated-right" data-delay="300">
+                    <div class="fin-support-number">2</div>
+                    <h3>Fund Transfers</h3>
+                    <p>Our team helps you with local and international fund transfers, ensuring secure and efficient movement of funds.</p>
+                </div>
+
+                <div class="fin-support-card animated-right" data-delay="500">
+                    <div class="fin-support-number">3</div>
+                    <h3>Mortgage Assistance</h3>
+                    <p>We provide expert guidance to help you secure competitive mortgage rates, handle approvals, and make financing your property simple.</p>
+                </div>
+
+                <div class="fin-support-card animated-right" data-delay="700">
+                    <div class="offplan-number">4</div>
+                    <h3>Cryptocurrency Transactions</h3>
+                    <p>For those interested in digital currencies, we facilitate seamless cryptocurrency transactions for real estate investments.</p>
+                </div>
+
+                <div class="fin-support-card animated-right" data-delay="700">
+                    <div class="offplan-number">5</div>
+                    <h3>Business & Residency Support</h3>
+                    <p>Whether you’re investing as a business or relocating, we offer comprehensive support with residency and business setup to ensure your transition is smooth.</p>
+                </div>
+
+            </div>
+        </section>
+
+
+    </main>
+
+    <section class="why-choose-section">
+        <h2 class="section-title">Why Choose <span class="highlight">Realty Utopia ?</span></h2>
+
+        <div class="why-cards-container ">
+            <div class="why-card animate-up" data-delay="0">
+                <span class="check-icon">✨</span>
+                <p><strong>Expert Guidance</strong> – Our team of financial experts helps you navigate complex transactions with ease, offering advice at every step.
+                </p>
+            </div>
+
+
+
+            <div class="why-card animate-up" data-delay="200">
+                <span class="check-icon">✨</span>
+                <p><strong>Global Reach</strong> – We provide financial solutions that accommodate international investments and cross-border transactions.</p>
+            </div>
+            <div class="why-card animate-up" data-delay="100">
+                <span class="check-icon">✨</span>
+                <p><strong>Security & Trust</strong> – Rest assured that your financial matters are in the hands of professionals who prioritize your security and success.
+                </p>
+            </div>
+            <div class="why-card animate-up" data-delay="300">
+                <span class="check-icon">✨</span>
+                <p><strong>Comprehensive Financial Services</strong> – From opening bank accounts to handling cryptocurrency investments, we offer full-service financial support.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="cta-section container">
+            <h3>Ready to Invest in Your Future?</h3>
+            <p>Connect with us today for expert guidance on top off-plan projects and global property investment
+                opportunities.</p>
+            <a href="{% url 'contact' %}" class="cta-button">Get a Free Consultation</a>
+        </div>
+    </section>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.getAttribute('data-delay') || 0;
+                    setTimeout(() => {
+                        entry.target.classList.add('active');
+                    }, parseInt(delay));
+
+                    observer.unobserve(entry.target); // Optional: only animate once
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        document.querySelectorAll('.animate-up, .animate-left, .animated-right').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+    {% endblock %}
+</body>
+
+</html>

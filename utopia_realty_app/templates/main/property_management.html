@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% extends 'base.html' %}
+    {% block title %}Welcome to Realty Utopia {% endblock %}
+    {% load static %}
+    {% load humanize %}
+    {% block content %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Property Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Hero Section -->
+    <section class="prop-hero">
+        <div class="prop-hero-overlay">
+            <div class="prop-hero-content">
+                <h1 class="prop-title">Property <span class="highlight">Management</span></h1>
+                <p class="prop-subtitle">Expert Solutions for Stress-Free Ownership and Maximum Returns</p>
+            </div>
+        </div>
+    </section>
+
+<section class="property-management">
+  <div class="property-intro">
+    <h2>Expert Property Management Services – <span class="highlight">Hassle-Free Ownership, Maximum Returns</span></h2>
+    <h3></h3>
+    <p class="intro">
+      Owning a property should be rewarding, not stressful. At <strong>Realty Utopia Real Estate LLC</strong>,
+      we offer comprehensive property management ser-vices that ensure your investment is well-maintained,
+      profitable, and hassle-free.
+    </p>
+  </div>
+
+ <div class="prop-manage-section">
+  <h3 class="prop-manage-title">Our Property <span class="highlight">Management Services</span></h3>
+
+  <div class="prop-manage-flex">
+    <div class="prop-manage-card">
+      <i class="fas fa-users prop-manage-icon-bg top-left"></i>
+      <h4>Tenant Management</h4>
+      <p>Screening, leasing, rent collection, and tenant support.</p>
+    </div>
+    <div class="prop-manage-card">
+      <i class="fas fa-tools prop-manage-icon-bg top-left"></i>
+      <h4>Maintenance & Repairs</h4>
+      <p>Inspections, regular upkeep, and emergency repairs.</p>
+    </div>
+    <div class="prop-manage-card">
+      <i class="fas fa-file-invoice-dollar prop-manage-icon-bg top-left"></i>
+      <h4>Financial Management</h4>
+      <p>Rent collection, expense tracking, and reporting.</p>
+    </div>
+    <div class="prop-manage-card">
+      <i class="fas fa-bullhorn prop-manage-icon-bg top-left"></i>
+      <h4>Marketing & Leasing</h4>
+      <p>Professional listings, advertising, and tenant placement.</p>
+    </div>
+    <div class="prop-manage-card">
+      <i class="fas fa-balance-scale prop-manage-icon-bg top-left"></i>
+      <h4>Legal & Compliance</h4>
+      <p>Lease agreements and regulatory compliance management.</p>
+    </div>
+  </div>
+</div>
+  </div>
+</section>
+
+<section class="who-we-serve-alt">
+  <h2 class="who-title">Who We <span class="highlight">Serve</span></h2>
+  <div class="who-grid">
+    <div class="who-item">
+      <i class="fas fa-chart-line"></i>
+      <h3>Investors</h3>
+      <p>Maximize rental income with minimal effort.</p>
+    </div>
+    <div class="who-item">
+      <i class="fas fa-home"></i>
+      <h3>Homeowners</h3>
+      <p>Maintain your property while generating passive income.</p>
+    </div>
+    <div class="who-item">
+      <i class="fas fa-building"></i>
+      <h3>Commercial Owners</h3>
+      <p>Smooth operations for retail and office spaces.</p>
+    </div>
+    <div class="who-item">
+      <i class="fas fa-umbrella-beach"></i>
+      <h3>Vacation Rentals</h3>
+      <p>Full-service Airbnb & short-term rental management.</p>
+    </div>
+
+
+
+  </div>
+</section>
+
+   <section class="why-choose-section">
+        <h2 class="section-title">Why Choose <span class="highlight">Realty Utopia ?</span></h2>
+
+        <div class="why-cards-container ">
+            <div class="why-card animate-up" data-delay="0">
+                <span class="check-icon">✨</span>
+                <p><strong>Global Expertise</strong> – We manage properties across international markets.</p>
+            </div>
+
+
+
+            <div class="why-card animate-up" data-delay="200">
+                <span class="check-icon">✨</span>
+                <p><strong>Maximized Rental Returns</strong> – Smart pricing strategies for high occupancy.</p>
+            </div>
+            <div class="why-card animate-up" data-delay="100">
+                <span class="check-icon">✨</span>
+                <p><strong>End-to-End Management</strong> – From marketing to maintenance, we handle it all.
+                </p>
+            </div>
+            <div class="why-card animate-up" data-delay="300">
+                <span class="check-icon">✨</span>
+                <p><strong>Dedicated Support</strong> – 24/7 assistance for owners and tenants.</p>
+            </div>
+        </div>
+    </section>
+
+    
+
+        <section class="cta">
+        <div class="cta-section container">
+            <h3> Ready to Maximize Your Property’s Potential?</h3>
+            <p>Let our experts boost your returns—book a free consultation now!</p>
+            <a href="{% url 'contact' %}" class="cta-button">Get a Free Consultation</a>
+        </div>
+    </section>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.getAttribute('data-delay') || 0;
+                    setTimeout(() => {
+                        entry.target.classList.add('active');
+                    }, parseInt(delay));
+
+                    observer.unobserve(entry.target); // Optional: only animate once
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        document.querySelectorAll('.animate-up, .animate-left, .animate-right').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% extends 'base.html' %}
+  {% block title %}Welcome to Realty Utopia {% endblock %}
+  {% load static %}
+  {% load humanize %}
+  {% block content %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4XkN7fY7kAVbRxJkzQ0lKOLaRyOZ0b+8xRg0gO+iR+DBU1Zo3kB0i1U2teGpWdQ6gNQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper@10/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <script src="https://unpkg.com/swiper@10/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+</head>
+
+<body>
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <video autoplay muted loop playsinline>
+      <!-- <source src="{% static 'video/utopia_mp4.mp4' %}" type="video/mp4"> -->
+      <source src="{% static 'video/utopia_mp4.mp4' %}" type="video/mp4">
+
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h1 class="hero-title">Discover, Invest & Thrive in Dubai Real Estate with Realty Utopia</h1>
+        <p class="hero-subtitle">
+          Leading boutique real estate agency in Dubai offering premium properties.
+        </p>
+        <!-- <div class="hero-buttons">
+        <a href="{% url 'property_list' %}" class="hero-btn primary-btn">Explore Properties</a>
+        <a href="{% url 'about' %}" class="hero-btn secondary-btn">Who We Are</a>
+      </div> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="vision-section">
+    <div class="container">
+      <div class="vision-content">
+        <div class="vision-text">
+          <h2 class="vision-title">
+            Buy, Sell, Rent & Invest with Confidence and <span class="highlight">Expert Support</span>
+          </h2>
+          <p class="vision-description">
+            At Realty Utopia, we provide expert real estate solutions to help you buy, sell, rent, or invest seamlessly.
+            Whether you’re searching for a dream home, a high-yield investment, or commercial property, our team ensures
+            a smooth and profitable experience. We offer comprehensive after-sales support, including utility
+            activation, resident visa assistance, and professional services to simplify your transition. With our
+            market expertise and dedicated guidance, your real estate journey is in safe hands.
+          </p>
+          <p class="vision-subtext">
+
+          </p>
+          <div class="vision-stats">
+            <div class="stat-box">
+              <span class="icon"><i class="fa-solid fa-award" style="color: #fdb016;"></i></span>
+              <h3>15+</h3>
+              <p>Years Experience</p>
+            </div>
+            <div class="stat-box">
+              <span class="icon"><i class="fa-solid fa-building" style="color: #fdb016;"></i></span>
+              <h3>200+</h3>
+              <p>Projects Completed</p>
+            </div>
+            <div class="stat-box">
+              <span class="icon"><i class="fa-solid fa-users" style="color: #fdb016;"></i></span>
+              <h3>5000+</h3>
+              <p>Satisfied Clients</p>
+            </div>
+            <div class="stat-box">
+              <span class="icon"><i class="fa-solid fa-star" style="color: #fdb016;"></i></span>
+              <h3>100%</h3>
+              <p>Client Satisfaction</p>
+            </div>
+          </div>
+        </div>
+        <div class="vision-images">
+          <img src="https://cdn.properties.emaar.com/wp-content/uploads/2020/06/01_BLOG_BUY_PROPERTY.jpg" alt="Office"
+            class="vision-img large-img">
+
+          <div class="right-images">
+            <img src="{% static 'img/living.jpg' %}" alt="Luxury View" class="vision-img small-img">
+
+            <img src="{% static 'img/room.jpg' %}" alt="Award" class="vision-img small-img">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- PROPERTY LISTING -->
+
+  <section class="submit-property-section">
+    <div class="submit-property-container">
+      <div class="submit-property-content ">
+        <h5 class="section-subtitle">LIST WITH US</h5>
+        <h1 class="section-title">
+          List Your UAE Property With <br>
+          UAE’s Top Real Estate Company!
+        </h1>
+        <p class="section-text">
+          Looking to sell or rent your property? We will provide you with unparalleled
+          service so that you can enjoy high returns on your property without any of the
+          stress and hassle often associated with the process.
+        </p>
+        <a href="{% url 'property_list' %}" class="submit-btn">Go to Properties</a>
+      </div>
+      <div class="submit-property-image container">
+      </div>
+    </div>
+  </section>
+  <!-- BUY,SELL & INVEST  -->
+  <div class="service">
+    <section class="services-section">
+      <div class="service-title">
+        <h2>Buy, Sell & Invest <span class="highlight">with Confidence</span></h2>
+      </div>
+
+      <div class="slider-wrapper">
+        <button class="slider-btn prev">&#8592;</button> <!-- ← -->
+        <div class="slider-track">
+          <!-- Slides -->
+          <div class="service-card">
+            <h3>Buy / Sell</h3>
+            <p>Whether you’re looking to purchase your dream home or sell your property at the best price, our expert
+              team ensures a smooth and profitable transaction.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Short-Term Rentals</h3>
+            <p>Need a temporary stay? We offer a wide range of fully furnished short-term rental properties to suit your
+              business, vacation, or relocation needs.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Property Management</h3>
+            <p>From tenant handling and rent collection to maintenance and legal compliance, we provide hassle-free
+              property management services to maximize your returns.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Rental / Lease</h3>
+            <p>Looking for the perfect space? We offer flexible leasing solutions for residential and commercial
+              properties, ensuring you find the right fit for your needs.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Residential / Commercial</h3>
+            <p>Whether you’re investing in a luxury home, a high-rise office, or a retail space, we provide tailored
+              solutions to meet your specific real estate goals.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Off-Plan / Investments</h3>
+            <p>Secure high-return opportunities in emerging and off-plan projects. We guide you through the process to
+              ensure you make smart, future-proof investments.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Global Properties / Investments</h3>
+            <p>Expand your portfolio with international real estate opportunities. We connect you to high-value
+              properties worldwide, ensuring profitable and secure investments in top markets.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Comprehensive After-Sales Support</h3>
+            <p>From activating utility services and providing resident visa assistance to offering professional support
+              with lawyers, accountants, interpreters, and insurance experts, we ensure a seamless transition and smooth
+              business operations.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Financial Support</h3>
+            <p>We offer comprehensive financial services, including bank account setup, fund transfers, mortgage
+              assistance, and cryptocurrency transactions. Our team provides business and residency support to ensure
+              your investments are seamless and secure.</p>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <button class="slider-btn next">&#8594;</button> <!-- → -->
+      </div>
+    </section>
+  </div>
+
+  <!-- DEVELOPERS AND PARTNERS -->
+  <section>
+
+    <div class="logo-loop-container">
+      <div class="logo-title">
+        <h2>Developers <span class="highlight">& Partners</span></h2>
+      </div>
+      <div class="logo-track">
+        <!-- Logos start -->
+        <div class="logo"><img src="{% static 'img/azizi.jpg' %}" alt="GitHub"></div>
+        <div class="logo"><img src="{% static 'img/Damac.jpg' %}" alt="HTML5"></div>
+        <div class="logo"><img src="{% static 'img/dubai-properties.jpg' %}" alt="CSS3"></div>
+        <div class="logo"><img src="{% static 'img/Emaar.jpg' %}" alt="JavaScript"></div>
+        <div class="logo"><img src="{% static 'img/merass.jpg' %}" alt="React"></div>
+        <div class="logo"><img src="{% static 'img/mira.jpg' %}" alt="React"></div>
+        <div class="logo"><img src="{% static 'img/Nakheel.jpg' %}" alt="React"></div>
+        <div class="logo"><img src="{% static 'img/nshama.jpg' %}" alt="React"></div>
+        <div class="logo"><img src="{% static 'img/Ellington.jpg' %}" alt="React"></div>
+        <div class="logo"><img src="{% static 'img/belmont.jpg' %}" alt="React"></div>
+        <div class="logo"><img src="{% static 'img/arada.jpg' %}" alt="React"></div>
+        <div class="logo"><img src="{% static 'img/omniyat.jpg' %}" alt="React"></div>
+        <!-- Duplicate logos for infinite loop -->
+        <div class="logo"><img src="{% static 'img/azizi.jpg' %}" alt="GitHub"></div>
+        <div class="logo"><img src="{% static 'img/Damac.jpg' %}" alt="HTML5"></div>
+        <div class="logo"><img src="{% static 'img/dubai-properties.jpg' %}" alt="CSS3"></div>
+        <div class="logo"><img src="{% static 'img/Emaar.jpg' %}" alt="JavaScript"></div>
+        <div class="logo"><img src="{% static 'img/merass.jpg' %}" alt="React"></div>
+        <div class="logo"><img src="{% static 'img/mira.jpg' %}" alt="React"></div>
+        <div class="logo"><img src="{% static 'img/Nakheel.jpg' %}" alt="React"></div>
+        <div class="logo"><img src="{% static 'img/nshama.jpg' %}" alt="React"></div>
+        <div class="logo"><img src="{% static 'img/Ellington.jpg' %}" alt="React"></div>
+        <div class="logo"><img src="{% static 'img/belmont.jpg' %}" alt="React"></div>
+        <div class="logo"><img src="{% static 'img/arada.jpg' %}" alt="React"></div>
+        <div class="logo"><img src="{% static 'img/omniyat.jpg' %}" alt="React"></div>
+      </div>
+    </div>
+  </section>
+  <!-- REVIEW SECTION -->
+  <section class="review-section">
+    <h2 class="review-title" data-aos="fade-up">What Our Clients Say</h2>
+
+    <div class="swiper review-slider container" data-aos="fade-up">
+      <div class="swiper-wrapper">
+
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <div class="testimonial-card " id="test1">
+            <div class="quote-icon"><i class="fa-solid fa-quote-left" style="color: #ffffff;"></i></div>
+            <div class="testimonial-content">
+              <p>" Huge thanks to the team at Realty Utopia. Being new to Dubai, they helped me with all the processes and
+                I was able to finally rent my first apartment here. The process was seamless and they were super
+                responsive and helpful. Thanks Arslan, Umair and Shariq for making this such an easy experience so that
+                we don't have to face any hassle!! "</p>
+              <div class="author">- dane edmonds<br></div>
+              <div class="stars">★ ★ ★ ★ ★</div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+            <div class="testimonial-card " id="test1">
+            <div class="quote-icon"><i class="fa-solid fa-quote-left" style="color: #ffffff;"></i></div>
+            <div class="testimonial-content">
+              <p>" Huge thanks to the team at Realty Utopia. Being new to Dubai, they helped me with all the processes and
+                I was able to finally rent my first apartment here. The process was seamless and they were super
+                responsive and helpful. Thanks Arslan, Umair and Shariq for making this such an easy experience so that
+                we don't have to face any hassle!! "</p>
+              <div class="author">- dane edmonds<br></div>
+              <div class="stars">★ ★ ★ ★ ★</div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="swiper-slide">
+            <div class="testimonial-card " id="test1">
+            <div class="quote-icon"><i class="fa-solid fa-quote-left" style="color: #ffffff;"></i></div>
+            <div class="testimonial-content">
+              <p>" Huge thanks to the team at Realty Utopia. Being new to Dubai, they helped me with all the processes and
+                I was able to finally rent my first apartment here. The process was seamless and they were super
+                responsive and helpful. Thanks Arslan, Umair and Shariq for making this such an easy experience so that
+                we don't have to face any hassle!! "</p>
+              <div class="author"><span>&ndash;</span> dane edmonds<br></div>
+              <div class="stars">★ ★ ★ ★ ★</div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Navigation -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
+      <!-- Pagination (dots) -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+
+  <section class="why-realty-utopia">
+    <div class="overlay">
+      <div class="content">
+        <h2>Why Realty <span class="highlight">Utopia?</span></h2>
+        <p>
+          We are a luxury brokerage connecting discerning international clients to the most incredible and exclusive
+          homes in Dubai and around the globe. </p>
+        <p>
+          We enjoy an enviable reputation as trusted advisors to our clients, providing good old-fashioned honest
+          services. Whether you are a buyer or a seller, we help you make informed decision.</p>
+        <p>Ultimately, we aim to provide the most seamless customer experience, from the moment you connect with us to
+          the completion of a successful transaction.
+
+        </p>
+        <p>Our Mission is to deliver a customer experience that is truly exceptional. We firmly ensure that every member
+          of our team is an expert in their chosen area and can provide the most comprehensive and trusted property
+          advice to their clients.
+
+        </p>
+        <p>Our Mission is to deliver a customer experience that is truly exceptional. We firmly ensure that every member
+          of our team is an expert in their chosen area and can provide the most comprehensive and trusted property
+          advice to their clients.
+
+        </p>
+
+        <a href="tel:+971501815061" class="enquiry-button">
+          <i class="fas fa-phone"></i> Make an Enquiry
+        </a>
+
+      </div>
+    </div>
+  </section>
+  <script>
+    // Swiper init
+    const swiper = new Swiper('.review-slider', {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 1
+        }
+      }
+    });
+
+    // AOS init
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+  </script>
+
+  <script>
+    const track = document.querySelector('.slider-track');
+    const nextBtn = document.querySelector('.slider-btn.next');
+    const prevBtn = document.querySelector('.slider-btn.prev');
+    const cards = Array.from(document.querySelectorAll('.service-card'));
+    const cardCount = cards.length;
+
+    const gap = 24; // gap between cards (px)
+    let cardWidth = 0;
+    let slideIndex = 0;
+
+    function setupClones() {
+      // Clone first few cards and append to end
+      for (let i = 0; i < visibleCardsCount(); i++) {
+        const clone = cards[i].cloneNode(true);
+        clone.classList.add('clone');
+        track.appendChild(clone);
+      }
+
+      // Clone last few cards and prepend to start
+      for (let i = cardCount - visibleCardsCount(); i < cardCount; i++) {
+        const clone = cards[i].cloneNode(true);
+        clone.classList.add('clone');
+        track.insertBefore(clone, track.firstChild);
+      }
+    }
+
+    function cardWidthWithGap() {
+      return cardWidth + gap;
+    }
+
+    function visibleCardsCount() {
+      return Math.floor(track.parentElement.offsetWidth / (cardWidth + gap));
+    }
+
+    function updateCardWidth() {
+      cardWidth = cards[0].offsetWidth;
+    }
+
+    let clonesAdded = false;
+    function init() {
+      updateCardWidth();
+
+      if (!clonesAdded) {
+        setupClones();
+        clonesAdded = true;
+      }
+
+      // Set initial position to first original slide (after prepended clones)
+      slideIndex = visibleCardsCount();
+      setPosition();
+    }
+
+    function setPosition(animate = true) {
+      if (animate) {
+        track.style.transition = 'transform 0.3s ease';
+      } else {
+        track.style.transition = 'none';
+      }
+
+      const distance = slideIndex * cardWidthWithGap();
+      track.style.transform = `translateX(-${distance}px)`;
+    }
+
+    function moveToNext() {
+      slideIndex++;
+      setPosition();
+
+      // If we moved past last original slide, jump instantly to original first slide
+      if (slideIndex >= cardCount + visibleCardsCount()) {
+        setTimeout(() => {
+          slideIndex = visibleCardsCount();
+          setPosition(false);
+        }, 300); // must match CSS transition duration
+      }
+    }
+
+    function moveToPrev() {
+      slideIndex--;
+      setPosition();
+
+      // If we moved before first original slide, jump instantly to last original slide
+      if (slideIndex < visibleCardsCount()) {
+        setTimeout(() => {
+          slideIndex = cardCount + visibleCardsCount() - 1;
+          setPosition(false);
+        }, 300);
+      }
+    }
+
+    nextBtn.addEventListener('click', moveToNext);
+    prevBtn.addEventListener('click', moveToPrev);
+
+    window.addEventListener('resize', () => {
+      updateCardWidth();
+      setPosition(false);
+    });
+
+    // Initialize on DOM ready
+    window.addEventListener('load', init);
+
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const container = document.getElementById('fade-text');
+      if (!container) return;
+
+      const text = container.textContent.trim();
+      container.textContent = '';
+
+      for (let char of text) {
+        const span = document.createElement('span');
+        span.innerHTML = char === ' ' ? '&nbsp;' : char;  // Keep spaces visible
+        container.appendChild(span);
+      }
+
+      const spans = container.querySelectorAll('span');
+      spans.forEach((span, i) => {
+        setTimeout(() => {
+          span.classList.add('visible');
+        }, i * 40); // Speed of animation
+      });
+    });
+  </script>
+
+
+  {% endblock %}
+
+</body>
+
+</html>
+<!-- <a href="{% url 'properties' %}" class="view-all-btn"> -->

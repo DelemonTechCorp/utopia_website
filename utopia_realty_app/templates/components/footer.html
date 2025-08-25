@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- About -->
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <a href="{% url 'index' %}">
+                        <img src="{% static 'img/utopia_logo.png' %}" alt="">
+                    </a>
+                </div>
+                <div class="footer-about">
+                    <h3>Realty Utopia Real Estate LLC</h3>
+                    <p>
+                        Redefining real estate with a boutique approach, we offer personalized, seamless services rooted
+                        in
+                        trust, integrity, and over a decade of expertise. Your success is our priority. </p>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-column">
+                <div class="quick">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'about' %}">About</a></li>
+                        <li><a href="{% url 'property_list' %}">Properties</a></li>
+                        <li><a href="">Blog</a></li>
+                        <li><a href="{% url 'contact' %}">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-column">
+
+                <h3>Contact Info</h3>
+                <p>Dubai Hills Business Park,<br>Building 4, Floor 7,<br>Dubai, UAE.</p>
+                <p>Office : 04 325 4233</p>
+                <p>Mobile : +971 50 181 5061</p>
+                <p>Mobile : +971 58 109 7518</p>
+                <p>info@realtyutopia.com</p>
+
+            </div>
+
+            <!-- Follow Us -->
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <ul class="social-links">
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Twitter (X)</a></li>
+                </ul>
+                <p><strong>Working Hours:</strong></p>
+                <p>Mon - Fri: 10:00 AM - 6:00 PM</p>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

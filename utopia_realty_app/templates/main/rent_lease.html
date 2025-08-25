@@ -1,0 +1,124 @@
+<html lang="en">
+
+<head>
+    {% extends 'base.html' %}
+    {% block title %}Welcome to Realty Utopia {% endblock %}
+    {% load static %}
+    {% load humanize %}
+    {% block content %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rent-Lease</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+    <section class="rent-hero">
+        <div class="rent-hero-overlay">
+            <div class="rent-hero-content">
+                <h1 class="rent-title">Rent or Lease <span class="highlight">with Confidence</span></h1>
+                <p class="rent-subtitle">Reliable Solutions for Renters and Property Owners</p>
+            </div>
+        </div>
+    </section>
+            <div class="rental-sub container">
+            <h2>Rent or Lease Properties with Confidence – <span>Realty Utopia Has You Covered</span></h2>
+            <p>Whether you’re looking for a residential home or a commercial space, Realty Utopia Real Estate LLC offers
+                a comprehensive selection of properties tailored to your needs. We help individuals, families,
+                businesses, and investors find the ideal space for living or growing their operations, across key
+                international markets.</p>
+        </div>
+    <section class="rental-container">
+
+        <!-- Renting Section -->
+        <div class="rental-section rental-rent">
+            <div class="rental-content">
+                <h2>Renting a <span class="highlight">Property</span></h2>
+                <h5>Your Ideal Home or Space Awaits</h5>
+                <ul>
+                    <li><span>Wide Range of Properties</span> <br> From luxury apartments and houses to offices and
+                        retail spaces.</li>
+                    <li><span>Flexible Rental Options</span> <br> Short-term and long-term rentals available to suit
+                        your needs.</li>
+                    <li><span>Fully Furnished & Unfurnished</span> <br> Choose between ready-to-move-in or blank spaces
+                        to personalize.</li>
+                    <li><span>Easy Process</span> <br> Quick lease agreements, smooth paperwork, and expert support
+                        throughout your move-in.</li>
+                </ul>
+
+            </div>
+        </div>
+
+        <!-- Leasing Section -->
+        <div class="rental-section rental-lease">
+            <div class="rental-content">
+                <h2> Leasing Your <span class="highlight">Property</span></h2>
+                <h5>Reliable Tenants, Maximum Returns</h5>
+                <ul>
+                    <li><span>Comprehensive Tenant Screening</span> <br> Find trustworthy tenants with our vetting
+                        process.</li>
+                    <li><span>Effective Marketing</span> <br> We list your property globally for maximum exposure.</li>
+                    <li><span>Lease Agreement & Legal Compliance</span> <br> All documents and regulations handled.</li>
+                    <li><span>Ongoing Property Management</span> <br> From rent collection to maintenance, we manage it
+                        all.</li>
+                </ul>
+
+            </div>
+        </div>
+    </section>
+    <section class="why-choose-section mt-5 mb-5">
+        <h2 class="section-title">Why Choose Realty <span class="highlight">Utopia for Rentals & Leasing?</span></h2>
+
+        <div class="why-cards-container ">
+            <div class="why-card animate-up" data-delay="0">
+                <span class="check-icon">✨</span>
+                <p><strong>Global Reach</strong> – Access to a wide network of properties and tenants across key international markets.</p>
+            </div>
+
+            <div class="why-card animate-up" data-delay="200">
+                <span class="check-icon">✨</span>
+                <p><strong>Personalized Service</strong> – Tailored solutions to meet the unique needs of renters and property owners alike.</p>
+            </div>
+            <div class="why-card animate-up" data-delay="100">
+                <span class="check-icon">✨</span>
+                <p><strong>Transparent Transactions </strong> – We ensure clear and hassle-free agreements for all parties involved.
+                </p>
+            </div>
+            <div class="why-card animate-up" data-delay="300">
+                <span class="check-icon">✨</span>
+                <p><strong>Expert Advice </strong> – Market insights to help you secure the best rental deals and maximize your investment returns.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta mt-5">
+        <div class="cta-section container">
+            <h3> Find Your Dream Property or Sell with Confidence!</h3>
+            <p>Contact us today for a free consultation and take the next step in your real estate journey.</p>
+            <a href="#contact" class="cta-button">Get a Free Consultation</a>
+        </div>
+    </section>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.getAttribute('data-delay') || 0;
+                    setTimeout(() => {
+                        entry.target.classList.add('active');
+                    }, parseInt(delay));
+
+                    observer.unobserve(entry.target); // Optional: only animate once
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        document.querySelectorAll('.animate-up, .animate-left, .animate-right').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+{% endblock %}
+
+</html>

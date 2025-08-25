@@ -1,0 +1,193 @@
+
+{% extends 'base.html' %}
+{% load custom_filters %}
+{% load static %}
+{% load humanize %}
+{% block title %}Welcome to Realty Utopia{% endblock %}
+{% block content %}
+<head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Property Detail</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+</head>
+
+<body>
+
+    <!-- Property Hero Section -->
+    <!-- Property Hero Section -->
+    <section class="property-hero-banner" style="background-image: linear-gradient(135deg,rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url('{{ prop.cover }}');">
+        <div class="property-hero-overlay">
+            <div class="hero-content-wrapper">
+                <h1 class="property-hero-title ">{{ prop.title }}</h1>
+<div><h2 class="property-hero-price gradient-text"><span>AED </span>{{ prop.low_price|intcomma }}</h2></div>
+
+                <div class="property-overview-grid">
+                    <div>{{ prop.city.name }} / {{ prop.district.name }}</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Keep using {{ prop }} everywhere -->
+
+    <!-- Property Overview -->
+    <section class="property-details-wrapper">
+        <div class="property-main-content">
+
+            <!-- Overview -->
+            <section class="property-section">
+                <h2 class="property-section-title"><span>{{prop.title}} </span>Overview</h2>
+                <p>{{ prop.description|safe }}</p>
+            </section>
+
+            <!-- Gallery -->
+            <section class="property-section">
+                <h2 class="property-section-title"><span>Gallery</span></h2>
+                <div class="property-gallery-grid">
+                    {% if prop.property_images.all %}
+                    {% for image in prop.property_images.all %}
+                    <img src="{{ image.image }}" alt="Property Image {{ forloop.counter }}" class="gallery-image"
+                        data-index="{{ forloop.counter0 }}">
+                    {% endfor %}
+                    {% else %}
+                    <p>No gallery images available for this property.</p>
+                    {% endif %}
+                </div>
+            </section>
+
+            <!-- Amenities -->
+            <section class="property-section property-amenities">
+                <h2 class="property-section-title"><span>Amenities</span></h2>
+                {% if prop.facilities.exists %}
+                <ul class="property-amenities-list">
+                    
+                    {% for facility in prop.facilities.all %}
+                    <li><i class="{{ facility.name|facility_icon }}"></i> {{ facility.name }}</li>
+
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p>No amenities listed for this property.</p>
+                {% endif %}
+            </section>
+
+            <!-- Payment Plan -->
+            <section class="property-section">
+                <h2 class="property-section-title"><span>Payment</span> Plan</h2>
+
+                {% if prop.payment_plans.exists %}
+                {% for plan in prop.payment_plans.all %}
+                <div class="single-payment-plan">
+                    <h3 class="payment-plan-name">{{ plan.name }}</h3>
+                    <p class="payment-plan-description">{{ plan.description }}</p>
+
+                    <ul class="property-payment-plan">
+                        {% for value in plan.values.all %}
+                        <li>{{ value.value }} - {{ value.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endfor %}
+                {% else %}
+                <p>No payment plan available for this property.</p>
+                {% endif %}
+            </section>
+
+
+            <!-- Unit Details -->
+            <section class="property-section">
+                <h2 class="property-section-title"><span>Unit</span> Details</h2>
+
+                {% if prop.grouped_apartments.exists %}
+                <table class="property-unit-table">
+                    <thead>
+                        <tr>
+                            <th>Rooms</th>
+                            <th>Type</th>
+                            <th>Size (sq ft)</th>
+                            <th>Price (AED)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for unit in prop.grouped_apartments.all %}
+                        <tr>
+                            <td>{{ unit.rooms }}</td>
+                            <td>{{ unit.unit_type }}</td>
+                            <td>{{ unit.min_area }}</td>
+                            <td>{{ unit.min_price|intcomma }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <p>No unit details available for this property.</p>
+                {% endif %}
+            </section>
+
+        </div>
+
+        <!-- Contact Form Fixed Right -->
+        <aside class="property-contact-form-wrapper">
+            <div class="property-contact-form-section">
+                <h2 class="property-section-title">Contact Us</h2>
+                <form class="property-contact-form">
+                    <input type="text" placeholder="Your Name" required />
+                    <input type="email" placeholder="Your Email" required />
+                    <input type="tel" placeholder="Phone Number" />
+                    <textarea placeholder="Message"></textarea>
+                    <button type="submit">Submit Inquiry</button>
+                </form>
+            </div>
+            
+        </aside>
+    </section>
+
+
+
+
+    <!-- scripts -->
+    <script>
+        let currentImageIndex = 0;
+        const galleryImages = document.querySelectorAll('.gallery-image');
+        const lightboxModal = document.getElementById('lightboxModal');
+        const lightboxImage = document.getElementById('lightboxImage');
+
+        galleryImages.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                currentImageIndex = index;
+                openLightbox(img.src);
+            });
+        });
+
+        function openLightbox(src) {
+            lightboxImage.src = src;
+            lightboxModal.style.display = 'block';
+        }
+
+        function closeLightbox() {
+            lightboxModal.style.display = 'none';
+        }
+
+        function changeImage(step) {
+            currentImageIndex += step;
+            if (currentImageIndex < 0) {
+                currentImageIndex = galleryImages.length - 1;
+            } else if (currentImageIndex >= galleryImages.length) {
+                currentImageIndex = 0;
+            }
+            lightboxImage.src = galleryImages[currentImageIndex].src;
+        }
+
+        // Close modal on ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+
+    {% endblock %}
+</body>

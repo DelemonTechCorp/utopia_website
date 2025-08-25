@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% extends 'base.html' %}
+    {% block title %}Comprehensive After-Sales Support {% endblock %}
+    {% load static %}
+    {% load humanize %}
+    {% block content %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Property Management</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+
+    <!-- Hero Section -->
+    <section class="sales-hero">
+        <div class="sales-hero-overlay">
+            <div class="sales-hero-content">
+                <h1 class="sales-title">Comprehensive After - <span class="highlight">Sales Support</span></h1>
+                <p class="sales-subtitle">Realty Utopia ensures a seamless and rewarding real estate experience long
+                    <br> after your transaction is complete.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="property-management">
+        <div class="property-intro">
+            <h2>Comprehensive After-Sales Support – <span class="highlight">Ensuring a Seamless Experience with Realty
+                    Utopia</span></h2>
+            <h3></h3>
+            <p class="intro">
+                At Realty Utopia Real Estate LLC, our commitment to our clients extends far beyond the transaction. We
+                offer Comprehensive After-Sales Support to ensure that your real estate journey remains smooth,
+                stress-free, and rewarding long after your property purchase or lease is complete.
+            </p>
+        </div>
+
+        <div class="support-manage-section">
+            <h3 class="support-manage-title">What Our After-Sales <span class="highlight">Support Includes</span></h3>
+
+            <div class="support-manage-flex">
+                <div class="support-manage-card">
+                    <i class="fas fa-tools support-manage-icon-bg top-left"></i>
+                    <h4>Property Maintenance & Repairs</h4>
+                    <p>Our team ensures your property remains in top condition, handling any necessary repairs and
+                        regular maintenance.</p>
+                </div>
+                <div class="support-manage-card">
+                    <i class="fas fa-user-check support-manage-icon-bg top-left"></i>
+                    <h4>Tenant Management</h4>
+                    <p>If you’ve leased out your property, we offer continued tenant management, including rent
+                        collection, dispute resolution, and ongoing communication.</p>
+                </div>
+                <div class="support-manage-card">
+                    <i class="fas fa-chart-bar support-manage-icon-bg top-left"></i>
+                    <h4>Investment Performance Tracking</h4>
+                    <p>We help you monitor your investment’s performance, including property value appreciation and
+                        rental yield.</p>
+                </div>
+                <div class="support-manage-card">
+                    <i class="fas fa-balance-scale support-manage-icon-bg top-left"></i>
+                    <h4>Legal & Compliance Support </h4>
+                    <p>Stay compliant with changing local regulations, tax laws, and leasing agreements. We keep you
+                        informed every step of the way.</p>
+                </div>
+                <div class="support-manage-card">
+                    <i class="fas fa-lightbulb support-manage-icon-bg top-left"></i>
+                    <h4>Market Updates & Insights</h4>
+                    <p>We provide regular market analysis, helping you make informed decisions about your investment
+                        portfolio and future property acquisitions.</p>
+                </div>
+                <div class="support-manage-card">
+                    <i class="fas fa-tags support-manage-icon-bg top-left"></i>
+                    <h4>Property Valuation & Re-Sale Guidance</h4>
+                    <p>When the time comes, we offer professional valuation services and assistance with re-selling or
+                        refinancing your property.</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+
+    <section class="why-choose-section">
+        <h2 class="section-title">Why Choose <span class="highlight">Realty Utopia ?</span></h2>
+
+        <div class="why-cards-container ">
+            <div class="why-card animate-up" data-delay="0">
+                <span class="check-icon">✨</span>
+                <p><strong>Ongoing Relationship </strong> –  We build long-term relationships, supporting you through every stage of your real estate ownership journey.</p>
+            </div>
+
+
+
+            <div class="why-card animate-up" data-delay="200">
+                <span class="check-icon">✨</span>
+                <p><strong>Expert Guidance</strong> – Our experienced team provides strategic advice and hands-on support, ensuring you get the most out of your investment.</p>
+            </div>
+            <div class="why-card animate-up" data-delay="100">
+                <span class="check-icon">✨</span>
+                <p><strong>Peace of Mind</strong> – We handle the details, from property upkeep to compliance, so you can focus on your life or business.
+                </p>
+            </div>
+            <div class="why-card animate-up" data-delay="300">
+                <span class="check-icon">✨</span>
+                <p><strong>Comprehensive Services</strong> – From routine maintenance to complex legal matters, we are your trusted partner in all things real estate.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="cta">
+        <div class="cta-section container">
+            <h3>Experience Peace of Mind Beyond the Sale</h3>
+            <p>Connect with Realty Utopia to discover how our after-sales services protect and grow your investment.</p>
+            <a href="{% url 'contact' %}" class="cta-button">Get a Free Consultation</a>
+        </div>
+    </section>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.getAttribute('data-delay') || 0;
+                    setTimeout(() => {
+                        entry.target.classList.add('active');
+                    }, parseInt(delay));
+
+                    observer.unobserve(entry.target); // Optional: only animate once
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        document.querySelectorAll('.animate-up, .animate-left, .animate-right').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+    {% endblock %}
+</body>
+
+</html>

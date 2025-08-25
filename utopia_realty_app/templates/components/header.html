@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <!-- Inside <head> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="nav-logo">
+            <a href="{% url 'index' %}" class="nav-logo">
+                <img src="{% static 'img/utopia_logo.png' %}" alt="Utopia Logo">
+            </a>
+        </div>
+
+        <input type="checkbox" id="active">
+        <label for="active" class="menu-btn"><i class="fas fa-bars" id="menu-icon"></i></label>
+
+
+        <div class="hero-wrapper">
+            <label for="active" class="menu-btn"><i class="fas fa-times" id="menu-icon"></i></label>
+
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li class="dropdown">
+                <a href="#">Services</a>
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'buy_sell' %}">Buy/Sell</a></li>
+                    <li><a href="{% url 'short_rental' %}">Short-Term Rentals</a></li>
+                    <li><a href="{% url 'property_management' %}">Property Management</a></li>
+                    <li><a href="{% url 'rent_lease' %}">Rental/Lease</a></li>
+                    <li><a href="{% url 'residential' %}">Residential/Commercial</a></li>
+                    <li><a href="{% url 'offplan' %}">Offplan/Investments</a></li>
+                    <li><a href="{% url 'global_property' %}">Global Properties/Investments</a></li>
+                    <li><a href="{% url 'sales_support' %}">Comprehensive After-Sales Support</a></li>
+                    <li><a href="{% url 'financial' %}">Financial Support</a></li>
+                </ul>
+                </li>
+                <li><a href="{% url 'property_list' %}">Properties</a></li>
+
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </div>
+
+    </div>
+    <!-- Mobile Navbar -->
+  <div class="mobile-navbar">
+      <div class="mob-nav-logo">
+        <a href="{% url 'index' %}">
+    <img src="{% static 'img/utopia_logo.png' %}" alt="Logo"></a>
+  </div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+  </div>
+
+  <!-- Dropdown Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="{% url 'index' %}">Home</a>
+    <a href="{% url 'about' %}">About</a>
+    <a href="{% url 'property_list' %}">Properties</a>
+      <div class="mob-nav-dropdown">
+    <div class="dropdown-title" onclick="toggleDropdown()">
+    Services <span id="dropdownIcon">⏷</span>
+</div>
+  <div class="dropdown-content" id="servicesDropdown">
+    <a href="{% url 'buy_sell' %}">Buy / Sell</a>
+    <a href="{% url 'short_rental' %}">Short-Term Rentals</a>
+    <a href="{% url 'property_management' %}">Property Management</a>
+    <a href="{% url 'rent_lease' %}">Rental / Lease</a>
+    <a href="{% url 'residential' %}">Residential / Commercial</a>
+    <a href="{% url 'offplan' %}">Offplan / Investments</a>
+    <a href="{% url 'global_property' %}">Global Properties / Investments</a>
+    <a href="{% url 'sales_support' %}">After-Sales Support</a>
+    <a href="{% url 'financial' %}">Financial Support</a>
+  </div>
+</div>
+    <a href="{% url 'contact' %}">Contact</a>
+  </div>
+    <script>
+        window.addEventListener("scroll", function () {
+            const navbar = document.querySelector(".navbar");
+            if (!navbar) return; // Prevent error if .nav-logo is missing
+
+            if (window.scrollY > 50) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+    </script>
+    <script>
+  function toggleMenu() {
+    const menu = document.getElementById("mobileMenu");
+    menu.classList.toggle("active");
+  }
+</script>
+<script>
+  function toggleDropdown() {
+  const dropdown = document.getElementById("servicesDropdown");
+  const icon = document.getElementById("dropdownIcon");
+  dropdown.classList.toggle("show");
+  icon.textContent = dropdown.classList.contains("show") ? "⏷" : "⏶";
+}
+
+</script>
+
+
+    <script>
+        const checkbox = document.getElementById('active');
+        const icon = document.getElementById('menu-icon');
+
+        checkbox.addEventListener('change', function () {
+            document.body.classList.toggle('no-scroll', this.checked);
+
+            if (this.checked) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
