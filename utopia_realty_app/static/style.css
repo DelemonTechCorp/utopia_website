@@ -195,7 +195,7 @@
 .hero-wrapper ul li .dropdown-menu li a {
   display: flex;
   padding: 5px 20px;
-  font-size: 18px;
+  font-size: 16px;
   color: #004080;
   text-align: left;
   white-space: nowrap;
@@ -6588,6 +6588,7 @@ input[type="checkbox"] {
 .inquiry-container {
   display: flex;
   min-height: 100vh;
+  margin-top: 20px;
 }
 
 .inquiry-image {
@@ -6641,6 +6642,7 @@ input[type="checkbox"] {
   align-items: center;
   gap: 10px;
   padding: 40px;
+  margin-top: 40px;
 }
 
 form.inquiry-form {
