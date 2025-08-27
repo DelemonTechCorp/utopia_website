@@ -1,18 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
     {% extends 'base.html' %}
-    {% block title %}About Realty Utopia {% endblock %}
-    {% load static %}
+        {% load static %}
     {% load humanize %}
-    {% block content %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Realty Utopia Real Estate</title>
-</head>
+    
+{% block title %}Contact Us - Realty Utopia Real Estate{% endblock %}
+{% block meta_description %}
+Contact Realty Utopia Real Estate in Dubai. Visit our office at Dubai Hills Business Park or send us a message online. We're here to guide your next move.
+{% endblock %}
 
 <body>
+    {% block content %}
+
     <!-- Hero Section -->
     <section class="contact-banner">
         <div class="container">
@@ -47,12 +45,18 @@
                     <a href="https://www.facebook.com/realtyutopiauae"><i class="fab fa-facebook"></i></a>
                     <a href="https://www.instagram.com/realtyutopiauae/#"><i class="fab fa-instagram"></i></a>
                     <a href="https://www.linkedin.com/company/realtyutopiauae/"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com/@RealtyUtopiaRealEstateLLC"><i class="fab fa-youtube"></i>
+</a>
                 </div>
             </div>
             <!-- Form -->
             <div class="contact-form-box">
                 <h3 class="section-heading">Send Us a <span class="highlight">Message</span></h3>
-                <form action="#" method="POST">
+                <form action="" method="POST">
+  {% csrf_token %}
+
+                    <input type="hidden" name="access_key" value="32ff3f7a-dca4-4c20-9b09-a47f03c1cb3d">
+                    <input type="hidden" name="redirect" value="{% url 'thankyou' %}">
                     <input type="text" name="name" placeholder="Enter your name" required />
                     <input type="text" name="phone" placeholder="Enter your phone" required />
                     <input type="email" name="email" placeholder="Your Email" required />

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from utopia_realty_app.models import *
 from django.db.models import Count
 from django.core.paginator import Paginator
@@ -101,7 +101,7 @@ def properties(request):
         property_list = property_list.filter(developer__name__icontains=developer_name)
 
     # Pagination
-    paginator = Paginator(property_list, 12)
+    paginator = Paginator(property_list, 6)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
@@ -125,7 +125,19 @@ def properties(request):
 
 def propertyDetailView(request, pk):
     prop = get_object_or_404(Property.objects.prefetch_related('facilities','property_images','payment_plans__values'), external_id=pk)
-    return render(request, 'main/property_detail.html', {'prop': prop})
+       # Fallback: use the first apartment for bedrooms and size
+    apartments = prop.grouped_apartments.all().order_by('min_price')
+    first_apartment = apartments.first()
+
+    context = {
+        'prop': prop,
+        'first_bedroom': first_apartment.rooms if first_apartment else None,
+        'size': first_apartment.min_area if first_apartment else None,
+        'price': prop.low_price  # Use price directly from Property table
+    }
+
+    return render(request, 'main/property_detail.html', context)
+
 
 def about(request):
     return render(request,'main/about.html')
@@ -159,3 +171,33 @@ def sales_support(request):
 
 def financial(request):
     return render(request,'main/financial.html')
+
+def inquiry(request):
+    if request.method == "POST":
+        fullname = request.POST.get("fullname")
+        phone = request.POST.get("tel")
+        email = request.POST.get("email")
+        interest = request.POST.get("interest")
+        property_type = request.POST.get("property_type")
+        budget = request.POST.get("budget")
+        message = request.POST.get("message")
+
+        Inquiry.objects.create(
+            fullname=fullname,
+            phone=phone,
+            email=email,
+            interest=interest,
+            property_type=property_type,
+            budget=budget,
+            message=message
+        )
+
+        return redirect("index")  # 👈 make sure you have a URL named 'home'
+
+    return render(request, "main/inquiry.html")
+
+def thankyou(request):
+    return render(request,'main/thankyou.html')
+
+def review(request):
+    return render(request,'main/review.html')

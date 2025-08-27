@@ -18,7 +18,7 @@
     <div class="navbar">
         <div class="nav-logo">
             <a href="{% url 'index' %}" class="nav-logo">
-                <img src="{% static 'img/utopia_logo.png' %}" alt="Utopia Logo">
+                <img src="{% static 'img/realty_logo.png' %}" alt="Utopia Logo">
             </a>
         </div>
 
@@ -49,6 +49,7 @@
                 <li><a href="{% url 'property_list' %}">Properties</a></li>
 
                 <li><a href="{% url 'contact' %}">Contact</a></li>
+                <li><a href="{% url 'inquiry' %}">Inquiry</a></li>
             </ul>
         </div>
 
@@ -57,7 +58,7 @@
   <div class="mobile-navbar">
       <div class="mob-nav-logo">
         <a href="{% url 'index' %}">
-    <img src="{% static 'img/utopia_logo.png' %}" alt="Logo"></a>
+    <img src="{% static 'img/realty_logo.png' %}" alt="Logo"></a>
   </div>
     <div class="hamburger" onclick="toggleMenu()">☰</div>
   </div>
@@ -69,7 +70,7 @@
     <a href="{% url 'property_list' %}">Properties</a>
       <div class="mob-nav-dropdown">
     <div class="dropdown-title" onclick="toggleDropdown()">
-    Services <span id="dropdownIcon">⏷</span>
+    Services <span id="dropdownIcon"><i class="fa-solid fa-chevron-down"></i></span>
 </div>
   <div class="dropdown-content" id="servicesDropdown">
     <a href="{% url 'buy_sell' %}">Buy / Sell</a>

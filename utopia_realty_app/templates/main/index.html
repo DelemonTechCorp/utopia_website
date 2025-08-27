@@ -3,14 +3,17 @@
 
 <head>
   {% extends 'base.html' %}
-  {% block title %}Welcome to Realty Utopia {% endblock %}
+  {% block title %}Realty Utopia - Boutique Real Estate in Dubai{% endblock %}
+  {% block meta_description %}
+  Realty Utopia offers boutique real estate services in Dubai. Explore premium properties and personalized guidance.
+  {% endblock %}
   {% load static %}
   {% load humanize %}
-  {% block content %}
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
+
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
@@ -29,6 +32,8 @@
 </head>
 
 <body>
+  {% block content %}
+
   <!-- HERO SECTION -->
   <section class="hero-section">
     <video autoplay muted loop playsinline>
@@ -94,8 +99,7 @@
           </div>
         </div>
         <div class="vision-images">
-          <img src="https://cdn.properties.emaar.com/wp-content/uploads/2020/06/01_BLOG_BUY_PROPERTY.jpg" alt="Office"
-            class="vision-img large-img">
+          <img src="{% static 'img/office.jpg' %}" alt="Office" class="vision-img large-img">
 
           <div class="right-images">
             <img src="{% static 'img/living.jpg' %}" alt="Luxury View" class="vision-img small-img">
@@ -250,7 +254,8 @@
           <div class="testimonial-card " id="test1">
             <div class="quote-icon"><i class="fa-solid fa-quote-left" style="color: #ffffff;"></i></div>
             <div class="testimonial-content">
-              <p>" Huge thanks to the team at Realty Utopia. Being new to Dubai, they helped me with all the processes and
+              <p>" Huge thanks to the team at Realty Utopia. Being new to Dubai, they helped me with all the processes
+                and
                 I was able to finally rent my first apartment here. The process was seamless and they were super
                 responsive and helpful. Thanks Arslan, Umair and Shariq for making this such an easy experience so that
                 we don't have to face any hassle!! "</p>
@@ -263,14 +268,17 @@
 
         <!-- Slide 2 -->
         <div class="swiper-slide">
-            <div class="testimonial-card " id="test1">
+          <div class="testimonial-card " id="test1">
             <div class="quote-icon"><i class="fa-solid fa-quote-left" style="color: #ffffff;"></i></div>
             <div class="testimonial-content">
-              <p>" Huge thanks to the team at Realty Utopia. Being new to Dubai, they helped me with all the processes and
-                I was able to finally rent my first apartment here. The process was seamless and they were super
-                responsive and helpful. Thanks Arslan, Umair and Shariq for making this such an easy experience so that
-                we don't have to face any hassle!! "</p>
-              <div class="author">- dane edmonds<br></div>
+              <p>" I had an excellent experience with Realty Utopia Real Estate in Dubai. From start to finish, their
+                team was professional, knowledgeable, and highly responsive. They truly understand the Dubai property
+                market and guided me expertly through every step of the buying process. Their attention to detail and
+                commitment to customer satisfaction made what could have been a stressful experience completely smooth
+                and enjoyable. I highly recommend Realty Utopia for anyone looking to buy, sell, or invest in Dubai real
+                estate—they are trustworthy, efficient, and genuinely care about their clients’ needs. And wow - their
+                new location at Dubai Hills Business Park is stunning! "</p>
+              <div class="author">- M 0.1<br></div>
               <div class="stars">★ ★ ★ ★ ★</div>
 
             </div>
@@ -279,14 +287,18 @@
 
         <!-- Slide 3 -->
         <div class="swiper-slide">
-            <div class="testimonial-card " id="test1">
+          <div class="testimonial-card " id="test1">
             <div class="quote-icon"><i class="fa-solid fa-quote-left" style="color: #ffffff;"></i></div>
             <div class="testimonial-content">
-              <p>" Huge thanks to the team at Realty Utopia. Being new to Dubai, they helped me with all the processes and
-                I was able to finally rent my first apartment here. The process was seamless and they were super
-                responsive and helpful. Thanks Arslan, Umair and Shariq for making this such an easy experience so that
-                we don't have to face any hassle!! "</p>
-              <div class="author"><span>&ndash;</span> dane edmonds<br></div>
+              <p>" Excellent Experience with Milena from Realty Utopia Real Estate LLC!
+                We recently rented out our house with the help of Milena from Realty Utopia Real Estate, and we couldn’t
+                be more satisfied with the entire process. From the very first meeting, she was highly professional,
+                knowledgeable, and dedicated to finding the right tenants for our home.
+                Milena guided us through every step, provided valuable advice, and handled all the details efficiently.
+                Communication was always clear and timely, making the entire experience smooth and stress-free. Thanks
+                to her expertise and commitment, we quickly found reliable tenants, and everything was finalized
+                seamlessly. "</p>
+              <div class="author">- danijela acimovic<br></div>
               <div class="stars">★ ★ ★ ★ ★</div>
 
             </div>

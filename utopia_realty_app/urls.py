@@ -18,6 +18,9 @@ urlpatterns = [
     path('global_property', views.global_property, name='global_property'),
     path('sales_support', views.sales_support, name='sales_support'),
     path('financial', views.financial, name='financial'),
+    path('inquiry', views.inquiry, name='inquiry'),
+    path('thankyou', views.thankyou, name='thankyou'),
+    path('review', views.review, name='review'),
     path('property_list',views.properties,name='property_list'),
     path('property_detail/<int:pk>/', views.propertyDetailView, name='property_detail'),
 

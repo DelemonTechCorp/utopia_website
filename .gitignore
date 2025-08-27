@@ -1,7 +1,4 @@
 
-
-
-
 .env
 .env*
 .env/
@@ -10,3 +7,7 @@
 .venv
 .venv*
 .venv/git
+
+*/migrations/*.py
+*/migrations/*.pyc
+!*/migrations/__init__.py

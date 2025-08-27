@@ -1,19 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
     {% extends 'base.html' %}
-    {% block title %}Welcome to Realty Utopia {% endblock %}
     {% load static %}
     {% load humanize %}
-    {% block content %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Buy & Sell - Realty Utopia</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+    {% block title %}Buy & Sell Properties Worldwide | Realty Utopia Real Estate{% endblock %}
+
+
+    {% block meta_description %}
+    Discover global real estate opportunities with Realty Utopia. Buy your dream home or sell your property at the best
+    market price with expert guidance, worldwide reach, and seamless transactions.
+    {% endblock %}
+
 
 <body>
+    {% block content %}
 
     <!-- Hero Section -->
     <section class="buy-sell-hero">
@@ -125,7 +124,7 @@
         <div class="cta-section container">
             <h3> Find Your Dream Property or Sell with Confidence!</h3>
             <p>Contact us today for a free consultation and take the next step in your real estate journey.</p>
-            <a href="#contact" class="cta-button">Get a Free Consultation</a>
+            <a href="{% url 'inquiry' %}" class="cta-button">Get a Free Consultation</a>
         </div>
     </section>
     <script>
