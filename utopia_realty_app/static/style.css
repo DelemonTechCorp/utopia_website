@@ -1372,6 +1372,9 @@ input[type="checkbox"] {
     padding: 1rem;
     gap: 1rem;
   }
+  .prop-list{
+    flex-direction: column;
+  }
 
   .location-filter {
     width: 350px;
@@ -2518,7 +2521,7 @@ input[type="checkbox"] {
 }
 
 .property-hero-overlay {
-  background-color: rgba(0, 0, 0, 0.45);
+  background-color: rgba(0, 0, 0, 0.1);
   height: 100%;
   display: flex;
   align-items: center;
