@@ -1109,7 +1109,7 @@ input[type="checkbox"] {
   gap: 2rem;
   padding: 2rem;
   max-width: 1600px;
-  margin: auto;
+  /* margin: auto; */
   align-items: flex-start;
   /* Ensure both filter and cards align at top */
 }
@@ -1374,6 +1374,7 @@ input[type="checkbox"] {
   }
   .prop-list{
     flex-direction: column;
+    padding: 20px 0;
   }
 
   .location-filter {
