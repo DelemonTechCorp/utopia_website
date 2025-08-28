@@ -75,7 +75,7 @@
   right: 0;
   width: 50vw;
   height: 95vh;
-  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(218, 216, 216, 0.367), rgba(255, 255, 255, 0.2)), url('https://ckwbuildingsolutions.co.uk/wp-content/uploads/2016/02/corporate-buildings-white-1.jpg');
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(218, 216, 216, 0.367), rgba(255, 255, 255, 0.2)), url('/static/img/hero-wrapper.jpg');
   object-fit: cover;
   object-position: bottom;
   /* background: linear-gradient(-135deg, #fff, #fff); */
@@ -632,7 +632,7 @@ input[type="checkbox"] {
 }
 
 .hero-subtitle {
-  font-size: 1rem;
+  font-size: 1.3rem;
   margin-bottom: 2rem;
   opacity: 0;
   transform: translateY(20px);
@@ -1478,7 +1478,7 @@ input[type="checkbox"] {
 
 /* submit property */
 .submit-property-section {
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://d33om22pidobo4.cloudfront.net/blogs/ckeditor/pexels-photo-10593605jpeg-c9949b4e-cf1d-4d3d-bf9d-776e89056244jpeg-cdc39b1b-5dd1-4633-98b3-089fb8846420.jpeg');
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/static/img/submit-section.jpeg');
   /* background: linear-gradient(135deg, #F4F5FA, #B2C3DF); */
   color: #fff;
   /* padding: 80px 20px; */
@@ -1823,7 +1823,7 @@ input[type="checkbox"] {
   font-family: "Oxygen", sans-serif;
   text-align: center;
 
-  background-image: url('https://t4.ftcdn.net/jpg/03/70/13/39/360_F_370133990_aJD1Crkjxs8VfDFkZtceEY1HUME0z0eQ.jpg');
+  background-image: url('/static/img/review.jpg');
 
 }
 
@@ -1844,7 +1844,7 @@ input[type="checkbox"] {
 }
 
 .testimonial-card {
-  background-image: url('https://t3.ftcdn.net/jpg/04/23/41/14/360_F_423411429_PErrqnU7Vr8uYt3ZKIZ4pWvJsYijKaAZ.jpg');
+  background-image: url('/static/img/testimonial.jpg');
   /* background: #fff; */
   object-fit: cover;
   max-width: 1000px;
@@ -1971,7 +1971,7 @@ input[type="checkbox"] {
 
 /* why utopia section */
 .why-realty-utopia {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://seabeats.ae/wp-content/uploads/2024/08/dubai-skyline-image.jpg');
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/static/img/why-realty.jpg');
   /* Replace with your actual image */
   background-size: cover;
   background-position: center;
@@ -2133,9 +2133,9 @@ input[type="checkbox"] {
 /* ----- PROPERTY PAGE STYLE -------- */
 
 .property-hero {
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://c.pxhere.com/photos/2d/ee/towers_condos_skyscrapers_urban_city_curves_lines_architecture-545015.jpg!d');
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/static/img/property-hero.webp');
   background-size: cover;
-  background-position: center;
+  background-position: top;
   height: 80vh;
   position: relative;
   color: white;
@@ -2896,7 +2896,7 @@ input[type="checkbox"] {
   position: relative;
   /* ✅ Required for .intro-content absolute positioning */
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url('https://metropolitan.realestate/wp-content/uploads/2025/04/main-1.jpg') no-repeat center center/cover;
+    url('/static/img/intro-section.jpg') no-repeat center center/cover;
   color: white;
   height: 80vh;
   display: flex;
@@ -3540,7 +3540,7 @@ input[type="checkbox"] {
 /* ----- CONTACT PAGE STYLE -------- */
 .contact-banner {
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url('https://apexcapitaldubai.com/wp-content/uploads/2024/08/The-Influence-of-Culture-on-Dubais-Real-Estate-Design.webp');
+    url('/static/img/contact-banner.webp');
   color: #fff;
   height: 80vh;
   text-align: center;
@@ -3870,7 +3870,7 @@ input[type="checkbox"] {
 
 /* ----- BUY-SELL PAGE STYLE -------- */
 .buy-sell-hero {
-  background-image: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1470&q=80');
+  background-image: url('/static/img/buy-sell.avif');
   background-size: cover;
   background-position: center;
   height: 80vh;
@@ -3951,7 +3951,7 @@ input[type="checkbox"] {
 
 .buy-section {
   /* background-color: #fdfdfd; */
-  background-image: url('https://img.freepik.com/free-vector/neumorphic-style-blank-white-banner-with-slanting-lines-design_1017-53841.jpg?semt=ais_hybrid&w=740');
+  background-image: url('/static/img/buy-section.avif');
   background-position: bottom;
 }
 
@@ -4294,7 +4294,7 @@ input[type="checkbox"] {
 }
 
 .short-term-hero {
-  background: url('https://vayk.ae/wp-content/uploads/2023/02/DSC_0046-min-1-scaled.jpg') center center/cover no-repeat;
+  background: url('/static/img/short-term.jpg') center center/cover no-repeat;
   height: 80vh;
   display: flex;
   align-items: center;
@@ -4315,21 +4315,36 @@ input[type="checkbox"] {
 .short-term-hero-content {
   position: relative;
   z-index: 2;
-  max-width: 700px;
+  /* max-width: 700px; */
   padding: 0 20px;
 }
 
-.short-term-hero-content h1 {
+.short-title {
   font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 10px;
+  font-weight: 600;
+  font-family: "Oxygen", sans-serif;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+  color: white;
+  max-width: 700px;
+  text-shadow: 2px 2px 15px rgba(63, 44, 2, 0.167);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.4s;
 }
 
-.short-term-hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 25px;
+.short-subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  max-width: 700px;
+  opacity: 0;
+  margin: auto;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.6s;
+  color: #fff;
 }
-
 .short-term-cta-button {
   padding: 12px 30px;
   background-color: #007bff;
@@ -4545,10 +4560,10 @@ input[type="checkbox"] {
 
 /* ----- PROPERTY MANAGEMENT PAGE STYLE -------- */
 .prop-hero {
-  background-image: url('https://www.nobroker.in/blog/wp-content/uploads/2024/03/property.jpg');
+  background-image: url('/static/img/prop-hero.jpg');
   background-size: cover;
   background-position: center;
-  height: 80vh;
+  height: 90vh;
   position: relative;
   display: flex;
   align-items: center;
@@ -4874,10 +4889,10 @@ input[type="checkbox"] {
 
 /* ----- RENTAL-LEASE PAGE STYLE  -------- */
 .rent-hero {
-  background-image: url('https://mayak.kiev.ua/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fi1miqmg9vf3n%2F5YMqZj2o7s54UI3UE9yzlt%2F9fe5e2cb719c55b42e00dd5cdabd665c%2Fimage.png&w=3840&q=100');
+  background-image: url('/static/img/rent-hero.webp');
   background-size: cover;
   background-position: bottom;
-  height: 80vh;
+  height: 90vh;
   position: relative;
   display: flex;
   align-items: center;
@@ -5070,7 +5085,7 @@ input[type="checkbox"] {
 }
 
 .rental-rent {
-  background-image: url('https://static.vecteezy.com/system/resources/previews/003/127/947/non_2x/abstract-white-and-grey-dynamic-waves-background-free-vector.jpg');
+  background-image: url('/static/img/rental-rent.jpg');
   /* background: linear-gradient(130deg, #fff, #d5dfe9, #7295a5); */
 
   /* background-color: #fff; */
@@ -5316,10 +5331,10 @@ input[type="checkbox"] {
 
 /* ----- RESIDENTIAL PAGE STYLE -------- */
 .resident-hero {
-  background-image: url('https://www.mydubaiproperties.ae/wp-content/uploads/2023/06/Mudon-Al-Ranim-Phase-7-Dubai.jpg');
+  background-image: url('/static/img/resident-hero.jpg');
   background-size: cover;
   background-position: center;
-  height: 80vh;
+  height: 90vh;
   position: relative;
   display: flex;
   align-items: center;
@@ -5380,7 +5395,7 @@ input[type="checkbox"] {
 
 .resident-section {
   /* background-color: #fcf9f6; */
-  background-image: url('https://prestigecorporatesite.s3.ap-south-1.amazonaws.com/projectimage/32a661f5-9d6a-44df-97d6-6a61e26fb34d.webp');
+  background-image: url('/static/img/resident-section.webp');
   padding: 60px 20px;
   text-align: center;
   margin: 0;
@@ -5564,9 +5579,9 @@ input[type="checkbox"] {
 
 /* ----- OFFPLAN- INVESTMENT PAGE STYLE  -------- */
 .offplan-hero {
-  background-image: url('https://silverkeyrealty.co/wp-content/uploads/2025/01/Dubai-Offplan-Properties.jpg');
+  background-image: url('/static/img/offplan.jpg');
   background-size: cover;
-  background-position: top;
+  background-position: center;
   height: 80vh;
   position: relative;
   display: flex;
@@ -5796,10 +5811,10 @@ input[type="checkbox"] {
 }
 
 .global-hero {
-  background-image: url('https://cdn.sanity.io/images/74l1zcgb/production/e847f2f24365e79cbe505af0e65c049d5d0f3521-1920x700.jpg');
+  background-image: url('/static/img/global.jpg');
   background-size: cover;
   background-position: center;
-  height: 80vh;
+  height: 90vh;
   position: relative;
   display: flex;
   align-items: center;
@@ -6141,7 +6156,7 @@ input[type="checkbox"] {
 
 .globe-section {
   /* background-color: #fcf9f6; */
-  background-image: url('https://media.licdn.com/dms/image/v2/C561BAQEs3QXqONe3cw/company-background_10000/company-background_10000/0/1583911837906?e=2147483647&v=beta&t=piIixtvHsabWXjPWVnqQTay1RKHmEXHChMT94AMGuYU');
+  background-image: url('/static/img/global-section.jpeg');
   padding: 60px 20px;
   text-align: center;
   margin: 0;
@@ -6275,7 +6290,7 @@ input[type="checkbox"] {
 
 /* ----- SALES-SUPPORT PAGE STYLE  -------- */
 .sales-hero {
-  background-image: url('https://www.nevitaint.com/wp-content/uploads/2023/07/real-estate-after-sales-services-02-1.jpg');
+  background-image: url('/static/img/sales.jpg');
   background-size: cover;
   background-position: top;
   height: 80vh;
@@ -6315,7 +6330,7 @@ input[type="checkbox"] {
 .sales-subtitle {
   font-size: 1.3rem;
   font-weight: 400;
-  max-width: 1500px;
+  max-width: 900px;
 }
 
 
@@ -6418,7 +6433,7 @@ input[type="checkbox"] {
 
 /* ----- FINANCIAL-SUPPORT PAGE STYLE -------- */
 .financial-hero {
-  background-image: url('https://doxchequehomes.com/wp-content/uploads/2023/06/image-10.png');
+  background-image: url('/static/img/financial.png');
   background-size: cover;
   background-position: top;
   height: 80vh;
@@ -6445,7 +6460,7 @@ input[type="checkbox"] {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  max-width: 900px;
+  /* max-width: 900px; */
 }
 
 .financial-title {
@@ -6456,7 +6471,7 @@ input[type="checkbox"] {
 }
 
 .financial-sub {
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight: 400;
   color: #fff;
   font-family: "Oxygen";
@@ -6607,7 +6622,7 @@ input[type="checkbox"] {
 .inquiry-image {
   flex: 1;
   position: relative;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://content.r9cdn.net/rimg/dimg/9c/5d/375edbe5-city-6080-1666615a2c3.jpg?width=1366&height=768&xhint=2883&yhint=2021&crop=true') no-repeat center center/cover;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/static/img/inquiry.jpg') no-repeat center center/cover;
 }
 
 .inquiry-desc {}
