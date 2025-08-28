@@ -570,6 +570,9 @@ input[type="checkbox"] {
   .quick {
     display: block;
   }
+  .footer-container{
+    flex-direction: column;
+  }
 }
 
 /* ----- FOOTER STYLE ENDS -------- */
@@ -1201,6 +1204,10 @@ input[type="checkbox"] {
 
   gap: 1.5rem;
 }
+.prop-list{
+  display: flex;
+  padding: 0 20px;
+}
 
 .property-card {
   background: #ffffff;
@@ -1209,7 +1216,7 @@ input[type="checkbox"] {
   border-radius: 12px;
   position: relative;
   overflow: hidden;
-  height: 40vh;
+  height: auto;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease;
 }
@@ -2043,7 +2050,7 @@ input[type="checkbox"] {
   }
 
   .why-realty-utopia {
-    height: 110vh;
+    height: 120vh;
     padding: 3rem 1rem;
     text-align: center;
   }

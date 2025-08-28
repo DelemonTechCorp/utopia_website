@@ -74,10 +74,8 @@ locations. Find your perfect home or investment today.
       </form>
     </div>
   </section>
-
-  <div class="list-prop-wrapper">
-    <!-- LEFT: Filter -->
-    <div class="location">
+<div class="prop-list">
+      <div class="location">
       <div class="location-filter">
         <div class="filter-list">
 
@@ -147,6 +145,9 @@ locations. Find your perfect home or investment today.
         </div> <!-- end .filter-list -->
       </div> <!-- end .location-filter -->
     </div>
+  <div class="list-prop-wrapper">
+    <!-- LEFT: Filter -->
+
     <!-- end .location -->
 
     <!-- RIGHT: Property Grid -->
@@ -196,6 +197,7 @@ locations. Find your perfect home or investment today.
     </div>
     <!-- end .property-grid -->
   </div>
+</div>
   <div class="page">
     <div class="pagination" style="text-align: center; margin-top: 2rem;">
       {% with request.GET.urlencode as query_string %}

@@ -101,7 +101,7 @@ def properties(request):
         property_list = property_list.filter(developer__name__icontains=developer_name)
 
     # Pagination
-    paginator = Paginator(property_list, 6)
+    paginator = Paginator(property_list, 8)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
