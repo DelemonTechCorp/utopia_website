@@ -1947,16 +1947,61 @@ input[type="checkbox"] {
   #next {
     right: 1px;
   }
-
-  @media (max-width: 600px) {
-    .testimonial-slide-content {
-      padding: 1.5rem;
-    }
-
-    #prev, #next {
-      font-size: 1.2rem;
-    }
+@media (max-width: 768px) {
+  .testimonial{
+    height: auto;
   }
+  .testimonial-container {
+    padding: 60px 0;
+    height: auto;
+  }
+
+  .testimonial-slide-content {
+    padding: 1.5rem;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .quote-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    top: -25px;
+  }
+
+  .testimonial-text {
+    font-size: 1rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .testimonial-author {
+    font-size: 1.1rem;
+  }
+
+  .testimonial-stars {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+  }
+
+  
+  #prev, #next {
+    top: auto;
+    bottom: 10px;
+    transform: none;
+    font-size: 1.2rem;
+    padding: 8px 12px;
+  }
+
+  #prev {
+    left: 20px;
+  }
+
+  #next {
+    right: 20px;
+  }
+}
+
 /* why utopia section */
 .why-realty-utopia {
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/static/img/why-realty.jpg');
