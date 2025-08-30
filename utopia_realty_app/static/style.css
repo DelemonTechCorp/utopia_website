@@ -772,13 +772,14 @@ input[type="checkbox"] {
 }
 
 .vision-content {
-  max-width: 1400px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: nowrap;
-  /* Prevent wrapping on large screens */
-  gap: 3rem;
-  align-items: flex-start;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex
+;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 3rem;
+    align-items: center;
 }
 
 .vision-text {
