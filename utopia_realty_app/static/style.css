@@ -581,7 +581,7 @@ input[type="checkbox"] {
 /* HERO SECTION STYLES */
 .hero-section {
   position: relative;
-  height: 100vh;
+  height: 90vh;
   font-family: "Oxygen", sans-serif;
   overflow: hidden;
 }
