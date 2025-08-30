@@ -74,7 +74,7 @@
   top: 0;
   right: 0;
   width: 50vw;
-  height: 95vh;
+  height: 100vh;
   background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(218, 216, 216, 0.367), rgba(255, 255, 255, 0.2)), url('/static/img/hero-wrapper.jpg');
   object-fit: cover;
   object-position: bottom;
