@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('utopia_realty_app.urls')),
     
+    
 ]

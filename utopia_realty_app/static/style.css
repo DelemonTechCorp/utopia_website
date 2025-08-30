@@ -145,7 +145,7 @@
 
 .hero-wrapper ul li a {
   text-decoration: none;
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 500;
   padding: 5px 30px;
   color: #004080;
@@ -2076,7 +2076,11 @@ input[type="checkbox"] {
 
 .enquiry-button:hover {
   background-color: #e5a211;
+  color: #004080;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.enquiry-button:hover i{
+  color: #004080;
 }
 
 @media (max-width: 768px) {
@@ -7100,3 +7104,378 @@ input.search-box {
       }
     }
 /* ----- THANK-YOU STYLE ENDS -------- */
+
+/* ----- BLOG PAGE STYLE  -------- */
+ .post-hero-section {
+        background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+            url('https://images.pexels.com/photos/18559611/pexels-photo-18559611/free-photo-of-a-modern-home-with-wooden-siding-and-a-sidewalk.jpeg') no-repeat center center/cover;
+        height: 90vh;
+        display: flex;
+        justify-content: center;
+        object-position: top;
+        align-items: center;
+        text-align: center;
+        color: #ffffff;
+        padding: 0 20px;
+    }
+
+    .post-overlay {
+        max-width: 800px;
+    }
+
+    .post-overlay h1 {
+        font-size: 60px;
+        /* font-weight: 700; */
+        font-family: "Oxygen";
+    }
+
+    .post-overlay p {
+        margin-top: 1rem;
+        font-size: 1.25rem;
+        font-weight: 400;
+        color: #D7B56D;
+    }
+
+    .post-section {
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+
+    .post-featured {
+        display: flex;
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 40px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .post-featured img {
+        width: 50%;
+        height: auto;
+    }
+
+    .post-content {
+        padding: 24px;
+    }
+
+    .post-content .tag {
+        background: #dbbf86;
+        background: linear-gradient(135deg, rgba(219, 191, 134, 1) 1%, rgba(237, 207, 138, 1) 26%, rgba(255, 229, 181, 1) 44%, rgba(252, 229, 174, 1) 52%, rgba(227, 202, 151, 1) 64%, rgba(220, 189, 125, 1) 85%, rgba(215, 181, 109, 1) 100%);
+        color: white;
+        font-size: 0.8rem;
+        padding: 4px 10px;
+        border-radius: 5px;
+        display: inline-block;
+        margin-bottom: 10px;
+        font-weight: 700;
+    }
+
+    .post-content h2 {
+        font-size: 1.8rem;
+        margin-bottom: 12px;
+        font-weight: bold;
+        color: #004080;
+    }
+
+    .post-content p {
+        font-size: 1rem;
+        margin-bottom: 16px;
+    }
+
+    .meta {
+        font-size: 0.85rem;
+        color: #666;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 16px;
+    }
+    .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin: 40px 0;
+    font-size: 1rem;
+}
+
+.pagination .button {
+    background-color: #D7B56D;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.pagination .current-page {
+    align-self: center;
+    font-weight: 600;
+}
+
+
+    .button {
+        background-color: #fff;
+        color: #D7B56D;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        border: .5px solid #D7B56D;
+        font-weight: 600;
+        display: inline-block;
+    }
+
+    .read-more {
+        background-color: #fff;
+        color: #D7B56D;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        border: .5px solid #D7B56D;
+        font-weight: 600;
+        width: auto;
+        display: inline-block;
+    }
+    .meta:hover .read-more{
+      color: #fff;
+    }
+
+    .read-more:hover{
+      color: #Fff;
+      background-color: #fdb016;
+    }
+
+    .post-grid {
+        display: grid;
+        gap: 24px;
+        grid-template-columns: repeat(3,1fr);
+    }
+
+    .post-card {
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .post-card img {
+        width: 100%;
+        height: 30vh;
+    }
+
+    .post-card-body {
+        padding: 20px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .post-card-body .tag {
+        background-color: #D7B56D;
+        color: white;
+        font-size: 0.75rem;
+        padding: 3px 8px;
+        border-radius: 4px;
+        display: inline-block;
+        margin-bottom: 8px;
+    }
+
+    .post-card-body .tech {
+        background-color: #000;
+    }
+
+    .post-card-body h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        color: #004080;
+    }
+
+    .post-card-body p {
+        flex-grow: 1;
+        font-size: 0.95rem;
+        margin-bottom: 12px;
+        color: #555;
+    }
+
+    .post-card-body .meta {
+        font-size: 0.8rem;
+        color: #777;
+        margin-bottom: 10px;
+        display: flex;
+        gap: 12px;
+    }
+
+    .post-card-body a {
+        font-weight: 600;
+        text-decoration: none;
+        color: #333;
+        transition: all 0.2s ease;
+    }
+
+    .post-card-body a:hover {
+        color: #D7B56D;
+    }
+/* ----- BLOG STYLE ENDS -------- */
+
+
+/* ----- BLOG-DETAIL PAGE STYLE -------- */
+.blog-section-container {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 40px;
+}
+
+.blog-content {
+    width: 70%;
+}
+
+.sidebar {
+    width: 30%;
+    position: sticky;
+    top: 40px; /* sticks 40px from top */
+    align-self: flex-start; /* prevents stretching */
+    padding: 20px;
+    margin-top: 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    /* max-height: calc(100vh - 80px); view height minus top & bottom margins */
+    overflow-y: auto; /* scroll if sidebar content too tall */
+  scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE 10+ */
+}
+
+.sidebar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+}
+.toc {
+    padding: 10px 20px;
+    border-radius: 12px;
+}
+
+.toc li a{
+  color: #577eb0;
+}
+.toc h3{
+  color: #fdb016;
+}
+.related-articles h4 {
+    color: #fdb016;
+}
+
+    .toc h3 {
+        color: #fdb016;
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+
+    .toc ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .toc li {
+        padding: 8px 0;
+        border-bottom: .5px solid #f4f4f4;
+        font-size: 0.95rem;
+    }
+
+    .related-articles {
+        background: #fff;
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .related-articles h4 {
+        margin-bottom: 15px;
+        font-size: 1.05rem;
+    }
+
+    .related-card {
+        border-bottom: .5px solid #f4f4f4;
+
+        margin-bottom: 15px;
+    }
+
+    .related-card .tag {
+        background: #D7B56D;
+        color: white;
+        padding: 2px 8px;
+        font-size: 0.75rem;
+        border-radius: 4px;
+        display: inline-block;
+        margin-bottom: 4px;
+    }
+
+    .related-card p {
+        font-size: 0.9rem;
+    }
+
+    .related-card small {
+        color: #666;
+        font-size: 0.8rem;
+    }
+    .related-articles a{
+      color: #004080;
+    }
+
+    .related-articles small{
+      color: #fdb016;
+    }
+
+
+    .blog-content img{
+        
+    }
+
+    .header .tag {
+        background: #D7B56D;
+        color: white;
+        font-size: 0.75rem;
+        padding: 5px 10px;
+        border-radius: 4px;
+        display: inline-block;
+        margin-bottom: 12px;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        font-weight: 700;
+    }
+
+    .header .sub {
+        color: #666;
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+
+    .meta {
+        font-size: 0.85rem;
+        color: #999;
+        display: flex;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .feature-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        margin-bottom: 20px;
+    }
+
+    .post-body h3{
+      color: #004080;
+    }
+
+    .post-body p {
+        margin-bottom: 20px;
+        font-size: 1rem;
+    }
+/* ----- BLOG-DETAIL STYLE ENDS -------- */
+

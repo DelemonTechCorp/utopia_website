@@ -3,6 +3,10 @@ from utopia_realty_app.models import *
 from django.db.models import Count
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404
+from django.utils.safestring import mark_safe
+import markdown
+from django.db.models import Q
+
 
 # Create your views here.
 
@@ -201,3 +205,35 @@ def thankyou(request):
 
 def review(request):
     return render(request,'main/review.html')
+
+def blog_list(request):
+    featured_post = BlogPost.objects.order_by('-created_at').first()
+    posts_list = BlogPost.objects.exclude(id=featured_post.id) if featured_post else BlogPost.objects.all()
+    paginator = Paginator(posts_list, 13)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    context = {
+        'featured_post': featured_post,
+        'posts': page_obj,    
+        'page_obj': page_obj,
+    }
+
+    return render(request, 'main/blog.html', context)
+def blog_detail(request, slug):
+    blog = get_object_or_404(BlogPost, slug=slug)
+    related_posts = BlogPost.objects.exclude(id=blog.id)[:3]  
+    md = markdown.Markdown(extensions=['toc', 'fenced_code'])
+    html_content = md.convert(blog.content)
+    toc = md.toc
+
+    context = {
+        'blog': blog,
+        'content': mark_safe(html_content),
+        'toc': mark_safe(toc),
+        'meta_title': blog.meta_title,
+        'meta_description': blog.meta_description,
+        'related_posts': related_posts
+    }
+
+    return render(request, 'main/blog-detail.html', context)

@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils.text import slugify
 # Create your models here.
 
 class City(models.Model):
@@ -120,3 +120,50 @@ class Inquiry(models.Model):
 
     def __str__(self):
         return f"Inquiry from {self.fullname}"
+    
+
+
+class BlogPost(models.Model):
+    title = models.CharField(max_length=255)
+    slug = models.SlugField(unique=True, blank=True)
+
+    description = models.TextField(
+        max_length=300,
+        help_text="Brief intro or preview text."
+    )
+    
+    content = models.TextField(
+        help_text="Use markdown. Use ### for subheadings (for TOC)."
+    )
+
+    image = models.ImageField(
+        upload_to='blog_images/',
+        help_text="Main image for this blog post."
+    )
+
+    # ✅ Meta fields for SEO
+    meta_title = models.CharField(
+        max_length=60,
+        help_text="SEO title (max ~60 characters)."
+    )
+    meta_description = models.CharField(
+        max_length=160,
+        help_text="SEO meta description (max ~160 characters)."
+    )
+
+    created_at = models.DateField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return self.title
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse("blog_detail", kwargs={"slug": self.slug})

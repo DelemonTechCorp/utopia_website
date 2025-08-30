@@ -21,6 +21,8 @@ urlpatterns = [
     path('inquiry', views.inquiry, name='inquiry'),
     path('thankyou', views.thankyou, name='thankyou'),
     path('review', views.review, name='review'),
+    path('blog', views.blog_list, name='blog'),
+    path('blog/<slug:slug>/', views.blog_detail, name='blog_detail'),
     path('property_list',views.properties,name='property_list'),
     path('property_detail/<int:pk>/', views.propertyDetailView, name='property_detail'),
 

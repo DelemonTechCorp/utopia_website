@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{# SEO-friendly meta title and description #}
+{% block title %}{{ meta_title }}{% endblock %}
+{% block meta_description %}{{ meta_description }}{% endblock %}
+
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+<div class="blog-section-container">
+
+    <main class="blog-content">
+        <div class="header">
+            <span class="tag">Property</span>
+            <h1>{{ blog.title }}</h1>
+            <p class="sub">{{ blog.description }}</p>
+            <div class="meta">
+                <span>📅 {{ blog.created_at|date:"F j, Y" }}</span>
+                <!-- Add read time or views here if needed -->
+            </div>
+        </div>
+
+        <div class="feature-image">
+            <img src="{{ blog.image.url }}" alt="{{ blog.title }}">
+        </div>
+
+        <article class="post-body">
+            {{ content|safe }}
+        </article>
+    </main>
+
+    <aside class="sidebar">
+        <div class="toc">
+            <h3> Table of Contents</h3>
+            {{ toc|safe }}
+        </div>
+
+        <div class="related-articles">
+            <h4>📌 Related Properties</h4>
+            {% for post in related_posts %}
+            <div class="related-card">
+                <p><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></p>
+                <small>{{ post.created_at|date:"F j, Y" }}</small>
+            </div>
+            {% endfor %}
+        </div>
+    </aside>
+</div>
+{% endblock %}
