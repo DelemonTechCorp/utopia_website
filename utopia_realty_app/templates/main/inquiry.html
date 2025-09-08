@@ -7,20 +7,20 @@
 {% block content %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.20/css/intlTelInput.min.css">
 <link rel="stylesheet" href="{% static 'style.css' %}">
-    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
 
 <div class="inquiry-container">
   <div class="inquiry-image">
-<p >
-  Share your details with Utopia Real Estate and our team will connect with you 
-  to discuss properties, investment opportunities, and your budget preferences in Dubai.
-</p>
+    <p>
+      Share your details with Utopia Real Estate and our team will connect with you
+      to discuss properties, investment opportunities, and your budget preferences in Dubai.
+    </p>
   </div>
   <div class="inquiry-content">
 
-    <form class="inquiry-form" method="POST" action="{% url 'inquiry' %}">
-  {% csrf_token %}
-        <input type="hidden" name="access_key" value="32ff3f7a-dca4-4c20-9b09-a47f03c1cb3d">
+    <form class="inquiry-form" method="POST" action="https://api.web3forms.com/submit">
+      {% csrf_token %}
+      <input type="hidden" name="access_key" value="a0353089-5b1a-46c7-a30b-7e6478f5d97a">
       <h1 class="inquiry-h1">Schedule a <span class="highlight">Viewing</span> </h1>
 
       <div class="inquiry-field inquiry-fullname">
@@ -73,7 +73,8 @@
       <div class="inquiry-field inquiry-budget">
         <select id="budget" name="budget" required>
           <option value="" disabled selected>Budget Range</option>
-          <option value="under-500k"> < 500K</option>
+          <option value="under-500k">
+            < 500K</option>
           <option value="500k-1m">500K - 1M</option>
           <option value="1m-2m">1M - 2M</option>
           <option value="2m-5m">2M - 5M</option>
@@ -84,18 +85,39 @@
       <div class="inquiry-field inquiry-message">
         <textarea id="message" name="message" placeholder="Write your message here..."></textarea>
       </div>
+      <input type="hidden" name="origin" value="Inquiry" />
 
       <button type="submit" class="inquiry-button">Submit</button>
+      <input type="hidden" name="redirect" value="https://realtyutopia.com/thankyou">
     </form>
 
   </div>
 </div>
 
 <!-- intl-tel-input JS -->
- 
- <script>
-    // 253 countries
-const countries = [
+<script>
+  document.querySelector('.inquiry-form').addEventListener('submit', function (e) {
+    const form = e.target;
+    const formData = new FormData(form);
+
+    // Send to your Django endpoint
+    fetch("{% url 'save_inquiry_only' %}", {
+      method: 'POST',
+      headers: {
+        'X-CSRFToken': '{{ csrf_token }}'  // Optional if @csrf_exempt is used
+      },
+      body: formData
+    }).then(res => {
+      if (!res.ok) {
+        console.error("Failed to save inquiry to Django backend.");
+      }
+    });
+  });
+</script>
+
+<script>
+  // 253 countries
+  const countries = [
     { name: "Afghanistan", code: "AF", phone: 93 },
     { name: "Aland Islands", code: "AX", phone: 358 },
     { name: "Albania", code: "AL", phone: 355 },
@@ -348,16 +370,16 @@ const countries = [
     { name: "Yemen", code: "YE", phone: 967 },
     { name: "Zambia", code: "ZM", phone: 260 },
     { name: "Zimbabwe", code: "ZW", phone: 263 }
-],
+  ],
 
     select_box = document.querySelector('.options'),
     search_box = document.querySelector('.search-box'),
     input_box = document.querySelector('input[type="tel"]'),
     selected_option = document.querySelector('.selected-option div');
 
-let options = null;
+  let options = null;
 
-for (country of countries) {
+  for (country of countries) {
     const option = `
     <li class="option">
         <div>
@@ -369,12 +391,12 @@ for (country of countries) {
 
     select_box.querySelector('ol').insertAdjacentHTML('beforeend', option);
     options = document.querySelectorAll('.option');
-}
+  }
 
-function selectOption() {
+  function selectOption() {
     console.log(this);
     const icon = this.querySelector('.iconify').cloneNode(true),
-        phone_code = this.querySelector('strong').cloneNode(true);
+      phone_code = this.querySelector('strong').cloneNode(true);
 
     selected_option.innerHTML = '';
     selected_option.append(icon, phone_code);
@@ -386,25 +408,25 @@ function selectOption() {
 
     search_box.value = '';
     select_box.querySelectorAll('.hide').forEach(el => el.classList.remove('hide'));
-}
+  }
 
-function searchCountry() {
+  function searchCountry() {
     let search_query = search_box.value.toLowerCase();
     for (option of options) {
-        let is_matched = option.querySelector('.country-name').innerText.toLowerCase().includes(search_query);
-        option.classList.toggle('hide', !is_matched)
+      let is_matched = option.querySelector('.country-name').innerText.toLowerCase().includes(search_query);
+      option.classList.toggle('hide', !is_matched)
     }
-}
+  }
 
 
-selected_option.addEventListener('click', () => {
+  selected_option.addEventListener('click', () => {
     select_box.classList.toggle('active');
     selected_option.classList.toggle('active');
-})
+  })
 
-options.forEach(option => option.addEventListener('click', selectOption));
-search_box.addEventListener('input', searchCountry);
- </script>
+  options.forEach(option => option.addEventListener('click', selectOption));
+  search_box.addEventListener('input', searchCountry);
+</script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.20/js/intlTelInput.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.20/js/utils.js"></script>
 

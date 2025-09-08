@@ -117,6 +117,8 @@ class Inquiry(models.Model):
     budget = models.CharField(max_length=100, null=True)
     message = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    origin = models.CharField(max_length=255, blank=True)
+    
 
     def __str__(self):
         return f"Inquiry from {self.fullname}"

@@ -209,28 +209,24 @@ def sales_support(request):
 def financial(request):
     return render(request,'main/financial.html')
 
-def inquiry(request):
+@csrf_exempt  
+def save_inquiry_only(request):
     if request.method == "POST":
-        fullname = request.POST.get("fullname")
-        phone = request.POST.get("tel")
-        email = request.POST.get("email")
-        interest = request.POST.get("interest")
-        property_type = request.POST.get("property_type")
-        budget = request.POST.get("budget")
-        message = request.POST.get("message")
-
         Inquiry.objects.create(
-            fullname=fullname,
-            phone=phone,
-            email=email,
-            interest=interest,
-            property_type=property_type,
-            budget=budget,
-            message=message
+            fullname=request.POST.get("fullname"),
+            phone=request.POST.get("tel"),
+            email=request.POST.get("email"),
+            interest=request.POST.get("interest"),
+            property_type=request.POST.get("property_type"),
+            budget=request.POST.get("budget"),
+            message=request.POST.get("message"),
+            origin=request.POST.get("origin")
+
         )
+        return JsonResponse({"status": "success"})
+    return JsonResponse({"status": "error"}, status=400)
 
-        return redirect("index")  # 👈 make sure you have a URL named 'home'
-
+def inquiry(request):
     return render(request, "main/inquiry.html")
    
 def thankyou(request):

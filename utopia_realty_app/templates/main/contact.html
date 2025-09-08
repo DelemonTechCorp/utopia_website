@@ -53,34 +53,17 @@ We're here to guide your next move.
             <div class="contact-form-box">
                 <h3 class="section-heading">Send Us a <span class="highlight">Message</span></h3>
                 <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-                    <input type="hidden" name="access_key" value="a0353089-5bla-46c7-a30b-7e6478f5d97a">
+                    {% csrf_token %}
+                    <input type="hidden" name="access_key" value="a0353089-5b1a-46c7-a30b-7e6478f5d97a">
                     <input type="text" name="name" placeholder="Enter your name" required />
                     <input type="text" name="phone" placeholder="Enter your phone" required />
                     <input type="email" name="email" placeholder="Your Email" required />
                     <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
                     <input type="hidden" name="origin" value="Contact Page" />
                     <input type="hidden" name="redirect" value="https://realtyutopia.com/thankyou">
-
-
                     <button type="submit">Submit</button>
                 </form>
-
             </div>
-
-            <!-- <div class="contact-form-box">
-                <h3 class="section-heading">Send Us a <span class="highlight">Message</span></h3>
-                <form action="{% url 'contact' %}" method="POST">
-                    {% csrf_token %}
-                        <input type="hidden" name="access_key" value="32ff3f7a-dca4-4c20-9b09-a47f03c1cb3d">
-                        <input type="hidden" name="redirect" value="{% url 'thankyou' %}">
-                        <input type="text" name="name" placeholder="Enter your name" required />
-                        <input type="text" name="phone" placeholder="Enter your phone" required />
-                        <input type="email" name="email" placeholder="Your Email" required />
-                        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                        <input type="hidden" name="origin" value="Contact Page"> 
-                        <button type="submit">Submit</button>
-                </form>
-            </div> -->
         </div>
     </section>
 

@@ -25,6 +25,7 @@ urlpatterns = [
     path('blog/<slug:slug>/', views.blog_detail, name='blog_detail'),
     path('property_list',views.properties,name='property_list'),
     path('save-contact/', views.save_contact_only, name='save_contact_only'),
+    path('save-inquiry/', views.save_inquiry_only, name='save_inquiry_only'),
     path('property_detail/<int:pk>/', views.propertyDetailView, name='property_detail'),
 
     
