@@ -134,6 +134,14 @@ class Contact(models.Model):
     def __str__(self):
         return self.name
 
+class Newsletter(models.Model):
+    email = models.EmailField(unique=True)
+    subscribed_at = models.DateTimeField(auto_now_add=True)
+    origin = models.CharField(max_length=255, blank=True)
+
+    def __str__(self):
+        return self.email 
+    
 class BlogPost(models.Model):   
     title = models.CharField(max_length=255)
     slug = models.SlugField(unique=True, blank=True)

@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <title>{% block content %}Realty Utopia | Trusted Real Estate in Dubai & Beyond{% endblock %}</title>
-    <meta name="description" content="Realty Utopia Real Estate LLC – boutique real estate agency in Dubai offering global property sales, investments, and trusted real estate services. Built on trust, driven by results.">
+    <meta name="description"
+        content="Realty Utopia Real Estate LLC – boutique real estate agency in Dubai offering global property sales, investments, and trusted real estate services. Built on trust, driven by results.">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
 
@@ -30,13 +31,16 @@
                     <p>
                         Boutique real estate. Built on trust. Driven by results </p>
                 </div>
-                        <div class="footer-column ">
-    <form method="post" class="newsletter-form">
-        {% csrf_token %}
-        <input type="email" name="email" placeholder="Enter your email" required>
-        <button type="submit">Subscribe</button>
-    </form>
-</div>
+                <div class="footer-column ">
+                    <form method="POST" action="https://api.web3forms.com/submit" class="newsletter-form">
+                    {% csrf_token %}
+                        <input type="hidden" name="access_key" value="a0353089-5b1a-46c7-a30b-7e6478f5d97a">
+                        <input type="hidden" name="redirect" value="https://realtyutopia.com/">
+                        <input type="email" name="email" placeholder="Enter your email" required>
+                        <input type="hidden" name="origin" value="Newsletter" />
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
             </div>
 
 
@@ -82,13 +86,31 @@
             </div>
 
         </div>
-     
+
     </footer>
 
-   <div class="footer-bottom">
-    <p>© 2025 Realty Utopia. All Rights Reserved</p>
-</div>
+    <div class="footer-bottom">
+        <p>© 2025 Realty Utopia. All Rights Reserved</p>
+    </div>
+  <script>
+document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+    const form = e.target;
+    const formData = new FormData(form);
 
+    // Send to your Django backend (non-blocking)
+    fetch("{% url 'subscribe_newsletter' %}", {
+        method: "POST",
+        headers: {
+            'X-CSRFToken': '{{ csrf_token }}'
+        },
+        body: formData
+    }).catch((error) => {
+        console.error("Failed to save newsletter to Django:", error);
+    });
+
+    // Let Web3Forms continue its default submission
+});
+</script>
 </body>
 
 </html>

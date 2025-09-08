@@ -15,6 +15,16 @@ def base(request):
     return render(request,'base.html')
 
 
+@csrf_exempt
+def subscribe_newsletter(request):
+    if request.method == "POST":
+        Newsletter.objects.create(
+            email=request.POST.get("email"),
+            origin=request.POST.get("origin")
+        )
+        return JsonResponse({"status": "success"})
+    return JsonResponse({"status": "error"}, status=400)
+
 def index(request):
     view_all = request.GET.get('view') == 'all'
 
