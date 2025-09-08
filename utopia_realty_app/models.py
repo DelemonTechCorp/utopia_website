@@ -141,7 +141,18 @@ class Newsletter(models.Model):
 
     def __str__(self):
         return self.email 
-    
+
+class PropertyContact(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    phone = models.CharField(max_length=20, blank=True)
+    message = models.TextField(blank=True)
+    origin = models.CharField(max_length=255, blank=True)
+    submitted_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Inquiry from {self.name} - {self.email}"
+
 class BlogPost(models.Model):   
     title = models.CharField(max_length=255)
     slug = models.SlugField(unique=True, blank=True)

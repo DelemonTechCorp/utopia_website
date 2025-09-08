@@ -27,6 +27,7 @@ urlpatterns = [
     path('save-contact/', views.save_contact_only, name='save_contact_only'),
     path('save-inquiry/', views.save_inquiry_only, name='save_inquiry_only'),
     path('subscribe-newsletter/', views.subscribe_newsletter, name='subscribe_newsletter'),
+    path('save-property-contact/', views.save_property_contact, name='save_property_contact'),
     path('property_detail/<int:pk>/', views.propertyDetailView, name='property_detail'),
 
     

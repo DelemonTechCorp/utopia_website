@@ -138,6 +138,20 @@ def properties(request):
 
     return render(request, 'main/properties.html', context)
 
+@csrf_exempt
+def save_property_contact(request):
+    if request.method == "POST":
+        PropertyContact.objects.create(
+            name=request.POST.get("name"),
+            email=request.POST.get("email"),
+            phone=request.POST.get("phone"),
+            message=request.POST.get("message"),
+            origin=request.POST.get("origin")
+        )
+        return JsonResponse({"status": "success"})
+    
+    return JsonResponse({"status": "error"}, status=400)
+
 def propertyDetailView(request, pk):
     prop = get_object_or_404(Property.objects.prefetch_related('facilities','property_images','payment_plans__values'), external_id=pk)
        # Fallback: use the first apartment for bedrooms and size

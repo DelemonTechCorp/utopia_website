@@ -10,8 +10,8 @@
 
 {% block meta_description %}
 Discover a luxurious {{ first_bedroom }} bedroom apartment in {{ prop.city.name }} at {{ prop.title }}.
-Featuring {{ size }} sqft with floor-to-ceiling windows and stunning  views.
-Priced at AED {{ price|floatformat:0|intcomma }}."|slice:":160" 
+Featuring {{ size }} sqft with floor-to-ceiling windows and stunning views.
+Priced at AED {{ price|floatformat:0|intcomma }}."|slice:":160"
 Schedule a viewing today!
 {% endblock %}
 
@@ -140,87 +140,112 @@ Schedule a viewing today!
 
         </div>
 
-        <!-- Contact Form Fixed Right -->
         <aside class="property-contact-form-wrapper">
             <div class="property-contact-form-section">
                 <h2 class="property-section-title">Contact Us</h2>
-                <form class="property-contact-form">
-                    <input type="text" placeholder="Your Name" required />
-                    <input type="email" placeholder="Your Email" required />
-                    <input type="tel" placeholder="Phone Number" />
-                    <textarea placeholder="Message"></textarea>
+                <form class="property-contact-form" method="POST" action="https://api.web3forms.com/submit">
+                    <input type="hidden" name="access_key" value="a0353089-5b1a-46c7-a30b-7e6478f5d97a">
+                    <input type="hidden" name="redirect" value="https://realtyutopia.com/thankyou">
+                    <input type="text" name="name" placeholder="Your Name" required />
+                    <input type="email" name="email" placeholder="Your Email" required />
+                    <input type="tel" name="phone" placeholder="Phone Number" />
+                    <textarea name="message" placeholder="Message"></textarea>
+                    <input type="hidden" name="origin" value="Property Contact Form">
                     <button type="submit">Submit Inquiry</button>
                 </form>
             </div>
-
         </aside>
     </section>
 
 
-<div id="lightboxModal" class="lightbox-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
-  <span id="lightboxClose" style="position:absolute; top:20px; right:30px; color:#fff; font-size:40px; cursor:pointer;">&times;</span>
-  <img id="lightboxImage" src="" alt="Expanded Property Image" style="max-width:90%; max-height:90%; border-radius: 8px;">
-  <button id="prevBtn" style="position:absolute; left:30px; top:50%; transform:translateY(-50%); font-size:40px; color:#fff; background:none; border:none; cursor:pointer;">&#10094;</button>
-  <button id="nextBtn" style="position:absolute; right:30px; top:50%; transform:translateY(-50%); font-size:40px; color:#fff; background:none; border:none; cursor:pointer;">&#10095;</button>
-</div>
+    <div id="lightboxModal" class="lightbox-modal"
+        style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
+        <span id="lightboxClose"
+            style="position:absolute; top:20px; right:30px; color:#fff; font-size:40px; cursor:pointer;">&times;</span>
+        <img id="lightboxImage" src="" alt="Expanded Property Image"
+            style="max-width:90%; max-height:90%; border-radius: 8px;">
+        <button id="prevBtn"
+            style="position:absolute; left:30px; top:50%; transform:translateY(-50%); font-size:40px; color:#fff; background:none; border:none; cursor:pointer;">&#10094;</button>
+        <button id="nextBtn"
+            style="position:absolute; right:30px; top:50%; transform:translateY(-50%); font-size:40px; color:#fff; background:none; border:none; cursor:pointer;">&#10095;</button>
+    </div>
 
 
     <!-- scripts -->
 
     <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const images = document.querySelectorAll('.gallery-image');
-    const modal = document.getElementById('lightboxModal');
-    const modalImg = document.getElementById('lightboxImage');
-    const closeBtn = document.getElementById('lightboxClose');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
+        document.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('.gallery-image');
+            const modal = document.getElementById('lightboxModal');
+            const modalImg = document.getElementById('lightboxImage');
+            const closeBtn = document.getElementById('lightboxClose');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
 
-    let currentIndex = 0;
+            let currentIndex = 0;
 
-    function openModal(index) {
-      currentIndex = index;
-      modal.style.display = 'flex';
-      modalImg.src = images[currentIndex].src;
-    }
+            function openModal(index) {
+                currentIndex = index;
+                modal.style.display = 'flex';
+                modalImg.src = images[currentIndex].src;
+            }
 
-    function closeModal() {
-      modal.style.display = 'none';
-    }
+            function closeModal() {
+                modal.style.display = 'none';
+            }
 
-    function showPrev() {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      modalImg.src = images[currentIndex].src;
-    }
+            function showPrev() {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                modalImg.src = images[currentIndex].src;
+            }
 
-    function showNext() {
-      currentIndex = (currentIndex + 1) % images.length;
-      modalImg.src = images[currentIndex].src;
-    }
+            function showNext() {
+                currentIndex = (currentIndex + 1) % images.length;
+                modalImg.src = images[currentIndex].src;
+            }
 
-    images.forEach((img, index) => {
-      img.addEventListener('click', () => openModal(index));
-    });
+            images.forEach((img, index) => {
+                img.addEventListener('click', () => openModal(index));
+            });
 
-    closeBtn.addEventListener('click', closeModal);
-    prevBtn.addEventListener('click', showPrev);
-    nextBtn.addEventListener('click', showNext);
+            closeBtn.addEventListener('click', closeModal);
+            prevBtn.addEventListener('click', showPrev);
+            nextBtn.addEventListener('click', showNext);
 
-    // Close modal when clicking outside image
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) closeModal();
-    });
+            // Close modal when clicking outside image
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
 
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      if (modal.style.display === 'flex') {
-        if (e.key === 'Escape') closeModal();
-        else if (e.key === 'ArrowLeft') showPrev();
-        else if (e.key === 'ArrowRight') showNext();
-      }
-    });
-  });
-</script>
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (modal.style.display === 'flex') {
+                    if (e.key === 'Escape') closeModal();
+                    else if (e.key === 'ArrowLeft') showPrev();
+                    else if (e.key === 'ArrowRight') showNext();
+                }
+            });
+        });
+    </script>
+    <script>
+        document.querySelector('.property-contact-form').addEventListener('submit', function (e) {
+            const form = e.target;
+            const formData = new FormData(form);
+
+            // Send to Django in background
+            fetch("{% url 'save_property_contact' %}", {
+                method: "POST",
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}'  // if you're using CSRF protection
+                },
+                body: formData
+            }).catch((error) => {
+                console.error("Failed to save inquiry to backend:", error);
+            });
+
+            // Allow Web3Forms to continue
+        });
+    </script>
 
 
     <!-- <script>
