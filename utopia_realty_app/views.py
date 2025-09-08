@@ -6,8 +6,9 @@ from django.shortcuts import get_object_or_404
 from django.utils.safestring import mark_safe
 import markdown
 from django.db.models import Q
-
-
+import requests
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
 # Create your views here.
 
 def base(request):
@@ -146,8 +147,40 @@ def propertyDetailView(request, pk):
 def about(request):
     return render(request,'main/about.html')
 
+@csrf_exempt  # Optional if you're not using CSRF token
+def save_contact_only(request):
+    if request.method == "POST":
+        Contact.objects.create(
+            name=request.POST.get("name"),
+            phone=request.POST.get("phone"),
+            email=request.POST.get("email"),
+            message=request.POST.get("message"),
+            origin=request.POST.get("origin")
+        )
+        return JsonResponse({"status": "success"})
+    return JsonResponse({"status": "error"}, status=400)
+
 def contact(request):
-    return render(request,'main/contact.html')
+    return render(request, 'main/contact.html')
+# def contact(request):
+#     if request.method == "POST":
+#         name = request.POST.get("name")
+#         phone = request.POST.get("phone")
+#         email = request.POST.get("email")
+#         message = request.POST.get("message")
+#         origin = request.POST.get("origin")
+
+#         Contact.objects.create(
+#             name=name,
+#             phone=phone,
+#             email=email,
+#             message=message,
+#             origin=origin
+#         )
+
+#         return redirect("thankyou")  
+
+#     return render(request,'main/contact.html')
 
 def buy_sell(request):
     return render(request,'main/buy_sell.html')
@@ -199,7 +232,7 @@ def inquiry(request):
         return redirect("index")  # 👈 make sure you have a URL named 'home'
 
     return render(request, "main/inquiry.html")
-
+   
 def thankyou(request):
     return render(request,'main/thankyou.html')
 

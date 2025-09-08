@@ -109,12 +109,12 @@ class PaymentPlanValue(models.Model):
         return f"{self.name}: {self.value}"
     
 class Inquiry(models.Model):
-    fullname = models.CharField(max_length=255)
-    phone = models.CharField(max_length=20)
-    email = models.EmailField()
-    interest = models.CharField(max_length=100)
-    property_type = models.CharField(max_length=100)
-    budget = models.CharField(max_length=100)
+    fullname = models.CharField(max_length=255, null=True)
+    phone = models.CharField(max_length=20, null=True)
+    email = models.EmailField(null=True)
+    interest = models.CharField(max_length=100, null=True)
+    property_type = models.CharField(max_length=100, null=True)
+    budget = models.CharField(max_length=100, null=True)
     message = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -122,8 +122,17 @@ class Inquiry(models.Model):
         return f"Inquiry from {self.fullname}"
     
 
+class Contact(models.Model):
+    name = models.CharField(max_length=255, null=True)
+    phone = models.CharField(max_length=30, null=True)
+    email = models.CharField(max_length=255, null=True)
+    message = models.TextField(null=True)
+    origin = models.CharField(max_length=255, blank=True)
+    
+    def __str__(self):
+        return self.name
 
-class BlogPost(models.Model):
+class BlogPost(models.Model):   
     title = models.CharField(max_length=255)
     slug = models.SlugField(unique=True, blank=True)
 

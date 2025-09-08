@@ -1,11 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
 
-    {% extends 'base.html' %}
-        {% load static %}
-    {% load humanize %}
-    
 {% block title %}Contact Us - Realty Utopia Real Estate{% endblock %}
 {% block meta_description %}
-Contact Realty Utopia Real Estate in Dubai. Visit our office at Dubai Hills Business Park or send us a message online. We're here to guide your next move.
+Contact Realty Utopia Real Estate in Dubai. Visit our office at Dubai Hills Business Park or send us a message online.
+We're here to guide your next move.
 {% endblock %}
 
 <body>
@@ -46,24 +46,41 @@ Contact Realty Utopia Real Estate in Dubai. Visit our office at Dubai Hills Busi
                     <a href="https://www.instagram.com/realtyutopiauae/#"><i class="fab fa-instagram"></i></a>
                     <a href="https://www.linkedin.com/company/realtyutopiauae/"><i class="fab fa-linkedin-in"></i></a>
                     <a href="https://www.youtube.com/@RealtyUtopiaRealEstateLLC"><i class="fab fa-youtube"></i>
-</a>
+                    </a>
                 </div>
             </div>
             <!-- Form -->
             <div class="contact-form-box">
                 <h3 class="section-heading">Send Us a <span class="highlight">Message</span></h3>
-                <form action="" method="POST">
-  {% csrf_token %}
-
-                    <input type="hidden" name="access_key" value="32ff3f7a-dca4-4c20-9b09-a47f03c1cb3d">
-                    <input type="hidden" name="redirect" value="{% url 'thankyou' %}">
+                <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="a0353089-5bla-46c7-a30b-7e6478f5d97a">
                     <input type="text" name="name" placeholder="Enter your name" required />
                     <input type="text" name="phone" placeholder="Enter your phone" required />
                     <input type="email" name="email" placeholder="Your Email" required />
                     <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <input type="hidden" name="origin" value="Contact Page" />
+                    <input type="hidden" name="redirect" value="https://realtyutopia.com/thankyou">
+
+
                     <button type="submit">Submit</button>
                 </form>
+
             </div>
+
+            <!-- <div class="contact-form-box">
+                <h3 class="section-heading">Send Us a <span class="highlight">Message</span></h3>
+                <form action="{% url 'contact' %}" method="POST">
+                    {% csrf_token %}
+                        <input type="hidden" name="access_key" value="32ff3f7a-dca4-4c20-9b09-a47f03c1cb3d">
+                        <input type="hidden" name="redirect" value="{% url 'thankyou' %}">
+                        <input type="text" name="name" placeholder="Enter your name" required />
+                        <input type="text" name="phone" placeholder="Enter your phone" required />
+                        <input type="email" name="email" placeholder="Your Email" required />
+                        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                        <input type="hidden" name="origin" value="Contact Page"> 
+                        <button type="submit">Submit</button>
+                </form>
+            </div> -->
         </div>
     </section>
 
@@ -76,6 +93,28 @@ Contact Realty Utopia Real Estate in Dubai. Visit our office at Dubai Hills Busi
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            // Don't block Web3Forms submission
+            const form = e.target;
+
+            // Collect form data
+            const formData = new FormData(form);
+
+            // Send to your Django endpoint (save only)
+            fetch("{% url 'save_contact_only' %}", {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}'  // You must have csrf_token in your template context
+                },
+                body: formData
+            }).then(res => {
+                if (!res.ok) {
+                    console.error("Failed to save form data to Django.");
+                }
+            });
+        });
+    </script>
 
     {% endblock %}
 </body>
