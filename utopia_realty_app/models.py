@@ -3,8 +3,14 @@ from django.utils.text import slugify
 # Create your models here.
 
 class City(models.Model):
-    name = models.CharField(max_length=255,null=True,blank=True)
-    
+    name = models.CharField(max_length=255, null=True, blank=True)
+    slug = models.SlugField(unique=True, null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug and self.name:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return self.name
 
@@ -17,7 +23,20 @@ class District(models.Model):
     
 class Developer(models.Model):
     name = models.CharField(max_length=255,null=True,blank=True)
-    
+    slug = models.SlugField(unique=True,null=True,blank=True)
+
+    logo = models.URLField(blank=True, null=True)
+    website = models.URLField(blank=True, null=True)
+    email = models.EmailField(blank=True, null=True)
+    phone = models.CharField(max_length=50, blank=True, null=True)
+    address = models.TextField(blank=True, null=True)
+    overview = models.TextField(blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return self.name
     
@@ -40,7 +59,6 @@ class SalesStatus(models.Model):
         return self.name
     
 class Facility(models.Model):
-    id = models.BigIntegerField(primary_key=True,blank=True)
     name = models.CharField(max_length=255,null=True,blank=True)
     
     def __str__(self):
@@ -48,28 +66,90 @@ class Facility(models.Model):
 
 class Property(models.Model):
     external_id = models.BigIntegerField(primary_key=True)
-    title = models.CharField(max_length=255,null=True,blank=True)
-    description = models.TextField(null=True,blank=True)
-    cover = models.URLField(null=True,blank=True)
-    address = models.CharField(max_length=255,null=True,blank=True)
-    delivery_date = models.DateField(null=True,blank=True)
-    low_price = models.BigIntegerField(null=True,blank=True)
-    min_area = models.IntegerField(null=True,blank=True)
+
+    title = models.CharField(max_length=255, null=True, blank=True)
+    slug = models.SlugField(unique=True, null=True, blank=True)
+
+    description = models.TextField(null=True, blank=True)
+
+    cover = models.URLField(null=True, blank=True)
+
+    address = models.CharField(max_length=255, null=True, blank=True)
+    address_text = models.TextField(null=True, blank=True)
+
+    delivery_date = models.DateField(null=True, blank=True)
+
+    low_price = models.BigIntegerField(null=True, blank=True)
+    min_area = models.IntegerField(null=True, blank=True)
+
+    residential_units = models.PositiveIntegerField(default=0,null=True,blank=True)
+    commercial_units = models.PositiveIntegerField(default=0,null=True,blank=True)
+
+    completion_rate = models.PositiveIntegerField(default=0,null=True,blank=True)
+
     payment_plan = models.BooleanField(default=False)
     post_delivery = models.BooleanField(default=False)
-    payment_minimum_down_payment = models.PositiveIntegerField(null=True,blank=True)  
+
+    payment_minimum_down_payment = models.PositiveIntegerField(null=True, blank=True)
+
     guarantee_rental_guarantee = models.BooleanField(default=False)
-    guarantee_rental_guarantee_value = models.PositiveIntegerField(null=True,blank=True)  
-    down_payment = models.PositiveIntegerField(null=True,blank=True)  
-    updated_at = models.DateTimeField(null=True,blank=True)
-    city = models.ForeignKey(City,on_delete=models.CASCADE,related_name='properties')
-    district = models.ForeignKey(District,on_delete=models.CASCADE,related_name='properties')
-    developer = models.ForeignKey(Developer,on_delete=models.CASCADE,related_name='properties')
-    property_type =  models.ForeignKey(PropertyType,on_delete=models.CASCADE,related_name='properties')
-    property_status = models.ForeignKey(PropertyStatus,on_delete=models.CASCADE,related_name='properties')
-    sales_status = models.ForeignKey(SalesStatus,on_delete=models.CASCADE,related_name='properties')
-    facilities = models.ManyToManyField(Facility, related_name='properties')
-    
+
+    guarantee_rental_guarantee_value = models.PositiveIntegerField(null=True, blank=True)
+
+    down_payment = models.PositiveIntegerField(null=True, blank=True)
+
+    updated_at = models.DateTimeField(null=True, blank=True)
+
+    last_synced_at = models.DateTimeField(null=True, blank=True)
+
+    city = models.ForeignKey(
+        City,
+        on_delete=models.CASCADE,
+        related_name='properties'
+    )
+
+    district = models.ForeignKey(
+        District,
+        on_delete=models.CASCADE,
+        related_name='properties'
+    )
+
+    developer = models.ForeignKey(
+        Developer,
+        on_delete=models.CASCADE,
+        related_name='properties'
+    )
+
+    property_type = models.ForeignKey(
+        PropertyType,
+        on_delete=models.CASCADE,
+        related_name='properties'
+    )
+
+    property_status = models.ForeignKey(
+        PropertyStatus,
+        on_delete=models.CASCADE,
+        related_name='properties'
+    )
+
+    sales_status = models.ForeignKey(
+        SalesStatus,
+        on_delete=models.CASCADE,
+        related_name='properties'
+    )
+
+    facilities = models.ManyToManyField(
+        Facility,
+        related_name='properties'
+    )
+
+    def save(self, *args, **kwargs):
+        if not self.slug and self.title:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.title or str(self.external_id)
     
 class PropertyFacility(models.Model):
     property_id = models.ForeignKey(Property,on_delete=models.CASCADE)

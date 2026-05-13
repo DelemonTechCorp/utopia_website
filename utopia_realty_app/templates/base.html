@@ -21,7 +21,7 @@
 
   <title>{% block title %}Realty Utopia{% endblock %}</title>
   <style>
-    /* .contact-floating-button {
+    .contact-floating-button {
       position: fixed;
       bottom: 20px;
       right: 20px;
@@ -68,7 +68,7 @@
 
     .contact-option.chat-icon-phone {
       background-color: #fdb016;
-    } */
+    }
   </style>
 </head>
 
@@ -77,7 +77,7 @@
   {% block content %}{% endblock %}
   {% include "components/footer.html" %}
 
-  <!-- <div class="contact-floating-button" id="mainContactBtn">
+  <div class="contact-floating-button" id="mainContactBtn">
     <i class="fas fa-comments"></i>
   </div>
 
@@ -88,8 +88,8 @@
     <a href="tel:+971501815061" class="contact-option chat-icon-phone" title="Call Now">
       <i class="fas fa-phone-alt"></i>
     </a>
-  </div> -->
-  <!-- <script>
+  </div> 
+   <script>
     const mainBtn = document.getElementById('mainContactBtn');
     const options = document.getElementById('contactOptions');
 
@@ -100,7 +100,7 @@
         options.style.display = 'flex';
       }
     });
-  </script> -->
+  </script>
 
 </body>
 
