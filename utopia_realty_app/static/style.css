@@ -304,9 +304,8 @@ input[type="checkbox"] {
   display: none;
   flex-direction: column;
   background: #ffff;
-  position: fixed;
+  position: fixed;        /* change from: absolute */
   top: 60px;
-  /* below navbar */
   left: 0;
   right: 0;
   z-index: 999;
@@ -341,7 +340,7 @@ input[type="checkbox"] {
 /* Show only on screens ≤768px */
 @media (max-width: 768px) {
   .mobile-menu {
-    position: absolute;
+    position: fixed;       /* change from: absolute */
     top: 60px;
     left: 0;
     right: 0;
