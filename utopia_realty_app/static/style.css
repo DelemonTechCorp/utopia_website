@@ -352,7 +352,7 @@ input[type="checkbox"] {
 
   .mobile-navbar {
     display: flex;
-    max-width: 410px;
+    /* max-width: 410px; */
   }
 
   .mob-nav-logo {
