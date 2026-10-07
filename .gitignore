@@ -1,13 +1,31 @@
-
+# Environment variables / secrets
 .env
-.env*
-.env/
+.env.*
 
+# Virtual environments
+.venv/
+venv/
+env/
 
-.venv
-.venv*
-.venv/git
+# Python bytecode
+__pycache__/
+*.py[cod]
 
+# Django
+db.sqlite3
+db.sqlite3-journal
+*.log
+/staticfiles/
+
+# User-uploaded media
+/blog_images/
+
+# Migrations (keep the package marker)
 */migrations/*.py
-*/migrations/*.pyc
 !*/migrations/__init__.py
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
