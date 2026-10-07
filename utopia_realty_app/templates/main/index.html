@@ -1,0 +1,536 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block title %}
+Explore Dubai Boutique Real Estate | Realty Utopia Invest
+{% endblock %}
+{% block meta_description %}
+Discover premium properties in Dubai with Realty Utopia. Enjoy boutique real estate services and personalized guidance tailored to your needs.
+{% endblock %}
+
+
+<body>
+  {% block content %}
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <video autoplay muted loop playsinline>
+      <!-- <source src="{% static 'video/utopia_mp4.mp4' %}" type="video/mp4"> -->
+      <source src="{% static 'video/utopia_website.webm' %}" type="video/webm">
+
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h1 class="hero-title">Explore, Invest & Thrive in Dubai’s Boutique Real Estate Market with Realty Utopia</h1>
+        <p class="hero-subtitle">
+          Your trusted Boutique Real Estate agency in Dubai for premium living
+        </p>
+        <!-- <div class="hero-buttons">
+        <a href="{% url 'property_list' %}" class="hero-btn primary-btn">Explore Properties</a>
+        <a href="{% url 'about' %}" class="hero-btn secondary-btn">Who We Are</a>
+      </div> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="vision-section">
+    <div class="container">
+      <div class="vision-content">
+        <div class="vision-text">
+          <h2 class="vision-title">
+            Buy, Sell, Rent & Invest with Confidence and <span class="highlight">Expert Support</span>
+          </h2>
+          <p class="vision-description">
+            At Realty Utopia, we provide expert real estate solutions to help you buy, sell, rent, or invest seamlessly.
+            Whether you’re searching for a dream home, a high-yield investment, or commercial property, our team ensures
+            a smooth and profitable experience. We offer comprehensive after-sales support, including utility
+            activation, resident visa assistance, and professional services to simplify your transition. With our
+            market expertise and dedicated guidance, your real estate journey is in safe hands.
+          </p>
+          <p class="vision-subtext">
+
+          </p>
+          <div class="vision-stats">
+            <div class="stat-box">
+              <span class="icon"><i class="fa-solid fa-award" style="color: #fdb016;"></i></span>
+              <h3>15+</h3>
+              <p>Years Experience</p>
+            </div>
+            <div class="stat-box">
+              <span class="icon"><i class="fa-solid fa-building" style="color: #fdb016;"></i></span>
+              <h3>200+</h3>
+              <p>Projects Completed</p>
+            </div>
+            <div class="stat-box">
+              <span class="icon"><i class="fa-solid fa-users" style="color: #fdb016;"></i></span>
+              <h3>5000+</h3>
+              <p>Satisfied Clients</p>
+            </div>
+            <div class="stat-box">
+              <span class="icon"><i class="fa-solid fa-star" style="color: #fdb016;"></i></span>
+              <h3>100%</h3>
+              <p>Client Satisfaction</p>
+            </div>
+          </div>
+        </div>
+        <div class="vision-images">
+          <img src="{% static 'img/office.jpg' %}" alt="Office" class="vision-img large-img" title="Office">
+
+          <div class="right-images">
+            <img src="{% static 'img/living.jpg' %}" alt="Luxury View" class="vision-img small-img" title="Luxury View">
+
+            <img src="{% static 'img/room.jpg' %}" alt="Award" class="vision-img small-img" title="Award">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- PROPERTY LISTING -->
+
+  <section class="submit-property-section">
+    <div class="submit-property-container">
+      <div class="submit-property-content ">
+        <h5 class="section-subtitle">LIST WITH US</h5>
+        <h2 class="section-title">
+          List Your UAE Property With <br>
+          UAE’s Top Real Estate Company!
+        </h2>
+        <p class="section-text">
+          Looking to sell or rent your property? We will provide you with unparalleled
+          service so that you can enjoy high returns on your property without any of the
+          stress and hassle often associated with the process.
+        </p>
+        <a href="{% url 'property_list' %}" class="submit-btn">Go to Properties</a>
+      </div>
+      <div class="submit-property-image container">
+      </div>
+    </div>
+  </section>
+  <!-- BUY,SELL & INVEST  -->
+  <div class="service">
+    <section class="services-section">
+      <div class="service-title">
+        <h2>Buy, Sell & Invest <span class="highlight">with Confidence</span></h2>
+      </div>
+
+      <div class="slider-wrapper">
+        <button class="slider-btn prev">&#8592;</button> <!-- ← -->
+        <div class="slider-track">
+          <!-- Slides -->
+          <div class="service-card">
+            <h3>Buy / Sell</h3>
+            <p>Whether you’re looking to purchase your dream home or sell your property at the best price, our expert
+              team ensures a smooth and profitable transaction.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Short-Term Rentals</h3>
+            <p>Need a temporary stay? We offer a wide range of fully furnished short-term rental properties to suit your
+              business, vacation, or relocation needs.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Property Management</h3>
+            <p>From tenant handling and rent collection to maintenance and legal compliance, we provide hassle-free
+              property management services to maximize your returns.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Rental / Lease</h3>
+            <p>Looking for the perfect space? We offer flexible leasing solutions for residential and commercial
+              properties, ensuring you find the right fit for your needs.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Residential / Commercial</h3>
+            <p>Whether you’re investing in a luxury home, a high-rise office, or a retail space, we provide tailored
+              solutions to meet your specific real estate goals.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Off-Plan / Investments</h3>
+            <p>Secure high-return opportunities in emerging and off-plan projects. We guide you through the process to
+              ensure you make smart, future-proof investments.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Global Properties / Investments</h3>
+            <p>Expand your portfolio with international real estate opportunities. We connect you to high-value
+              properties worldwide, ensuring profitable and secure investments in top markets.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Comprehensive After-Sales Support</h3>
+            <p>From activating utility services and providing resident visa assistance to offering professional support
+              with lawyers, accountants, interpreters, and insurance experts, we ensure a seamless transition and smooth
+              business operations.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Financial Support</h3>
+            <p>We offer comprehensive financial services, including bank account setup, fund transfers, mortgage
+              assistance, and cryptocurrency transactions. Our team provides business and residency support to ensure
+              your investments are seamless and secure.</p>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <button class="slider-btn next">&#8594;</button> <!-- → -->
+      </div>
+    </section>
+  </div>
+
+  <!-- DEVELOPERS AND PARTNERS -->
+  <section>
+
+    <div class="logo-loop-container">
+      <div class="logo-title">
+        <h2>Developers <span class="highlight">& Partners</span></h2>
+      </div>
+      <div class="logo-track">
+        <!-- Logos start -->
+        <div class="logo"><img src="{% static 'img/azizi.jpg' %}" alt="Azizi" title="Azizi" ></div>
+        <div class="logo"><img src="{% static 'img/Damac.jpg' %}" alt="Damac" title="Damac"></div>
+        <div class="logo"><img src="{% static 'img/dubai-properties.jpg' %}" alt="Dubai Properties" title="Dubai Properties"></div>
+        <div class="logo"><img src="{% static 'img/Emaar.jpg' %}" alt="Emaar" title="Emaar"></div>
+        <div class="logo"><img src="{% static 'img/merass.jpg' %}" alt="Merass" title="Meraas"></div>
+        <div class="logo"><img src="{% static 'img/mira.jpg' %}" alt="Mira" title="Mira"></div>
+        <div class="logo"><img src="{% static 'img/Nakheel.jpg' %}" alt="Nakheel" title="Nakheel"></div>
+        <div class="logo"><img src="{% static 'img/nshama.jpg' %}" alt="Nshama" title="Nshama"></div>
+        <div class="logo"><img src="{% static 'img/Ellington.jpg' %}" alt="Ellington" title="Ellington"></div>
+        <div class="logo"><img src="{% static 'img/belmont.jpg' %}" alt="Belmont" title="Belmont"></div>
+        <div class="logo"><img src="{% static 'img/arada.jpg' %}" alt="Arada" title="Arada"></div>
+        <div class="logo"><img src="{% static 'img/omniyat.jpg' %}" alt="Omniyat" title="Omniyat"></div>
+        <!-- Duplicate logos for infinite loop -->
+        <div class="logo"><img src="{% static 'img/azizi.jpg' %}" alt="Azizi" title="Azizi" ></div>
+        <div class="logo"><img src="{% static 'img/Damac.jpg' %}" alt="Damac" title="Damac"></div>
+        <div class="logo"><img src="{% static 'img/dubai-properties.jpg' %}" alt="Dubai Properties" title="Dubai Properties"></div>
+        <div class="logo"><img src="{% static 'img/Emaar.jpg' %}" alt="Emaar" title="Emaar"></div>
+        <div class="logo"><img src="{% static 'img/merass.jpg' %}" alt="Merass" title="Meraas"></div>
+        <div class="logo"><img src="{% static 'img/mira.jpg' %}" alt="Mira" title="Mira"></div>
+        <div class="logo"><img src="{% static 'img/Nakheel.jpg' %}" alt="Nakheel" title="Nakheel"></div>
+        <div class="logo"><img src="{% static 'img/nshama.jpg' %}" alt="Nshama" title="Nshama"></div>
+        <div class="logo"><img src="{% static 'img/Ellington.jpg' %}" alt="Ellington" title="Ellington"></div>
+        <div class="logo"><img src="{% static 'img/belmont.jpg' %}" alt="Belmont" title="Belmont"></div>
+        <div class="logo"><img src="{% static 'img/arada.jpg' %}" alt="Arada" title="Arada"></div>
+        <div class="logo"><img src="{% static 'img/omniyat.jpg' %}" alt="Omniyat" title="Omniyat"></div>
+      </div>
+    </div>
+  </section>
+  <!-- REVIEW SECTION -->
+  <div class="testimonial">
+    <h2 class="review-title" data-aos="fade-up">What Our Clients Say</h2>
+    <div class="testimonial-container">
+      <!-- Testimonial 1 -->
+      <div class="testimonial-slide active">
+        <div class="testimonial-slide-content">
+          <div class="quote-icon"><i class="fa-solid fa-quote-left" style="color: #ffffff;"></i></div>
+
+          <p class="testimonial-text">
+            I had an excellent experience with Realty Utopia Real Estate in Dubai. From start to finish, their team was
+            professional, knowledgeable, and highly responsive. They truly understand the Dubai property market and
+            guided me expertly through every step of the buying process. Their attention to detail and commitment to
+            customer satisfaction made what could have been a stressful experience completely smooth and enjoyable. I
+            highly recommend Realty Utopia for anyone looking to buy, sell, or invest in Dubai real estate—they are
+            trustworthy, efficient, and genuinely care about their clients’ needs. And wow — their new location at Dubai
+            Hills Business Park is stunning! </p>
+
+          <p class="testimonial-author">- M 0.1</p>
+
+          <div class="testimonial-stars">
+            ★★★★★
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="testimonial-slide">
+        <div class="testimonial-slide-content">
+          <div class="quote-icon"><i class="fa-solid fa-quote-left" style="color: #ffffff;"></i></div>
+
+          <p class="testimonial-text">
+            Excellent Experience with Milena from Realty Utopia Real Estate LLC!
+            We recently rented out our house with the help of Milena from Realty Utopia Real Estate, and we couldn’t be
+            more satisfied with the entire process. From the very first meeting, she was highly professional,
+            knowledgeable, and dedicated to finding the right tenants for our home.
+            Milena guided us through every step, provided valuable advice, and handled all the details efficiently.
+            Communication was always clear and timely, making the entire experience smooth and stress-free.
+            Thanks to her expertise and commitment, we quickly found reliable tenants, and everything was finalized
+            seamlessly. </p>
+
+          <p class="testimonial-author">- danijela acimovic</p>
+
+          <div class="testimonial-stars">
+            ★★★★★
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+
+      <div class="testimonial-slide">
+        <div class="testimonial-slide-content">
+          <div class="quote-icon"><i class="fa-solid fa-quote-left" style="color: #ffffff;"></i></div>
+
+          <p class="testimonial-text">
+            Milena has been a fantastic real estate agent throughout my property journey in Dubai. She helped me
+            purchase two properties and made the complex buying process feel seamless with her thorough explanations and
+            expert guidance.
+            She consistently goes above and beyond for her clients. Her exceptional negotiation skills ensured I secured
+            fantastic prices on both properties. She is dedicated, responsive, and truly cares about her clients’ needs.
+            Working with her has been a pleasure, and I can't thank her enough for her support and expertise. If you're
+            looking to buy or sell property in Dubai, I highly recommend reaching out to her!
+          </p>
+
+          <p class="testimonial-author">- Michelle Pocock</p>
+
+          <div class="testimonial-stars">
+            ★★★★★
+          </div>
+        </div>
+      </div>
+      <!-- Testimonial 4 -->
+
+      <div class="testimonial-slide">
+        <div class="testimonial-slide-content">
+          <div class="quote-icon"><i class="fa-solid fa-quote-left" style="color: #ffffff;"></i></div>
+
+          <p class="testimonial-text">
+            Realty Utopia – A Great Experience for Newcomers
+            Mrs. Milena guided us thoroughly through the entire process. As newcomers to Dubai, we were unfamiliar with
+            the local procedures, but thanks to her extensive knowledge and professionalism, we felt supported every
+            step of the way. Her in-depth expertise in the Mira area was a great advantage and added real value to our
+            decision-making. We can confidently recommend Realty Utopia as a highly reliable and trustworthy real estate
+            company.
+          </p>
+
+          <p class="testimonial-author">- Jacob Bech</p>
+
+          <div class="testimonial-stars">
+            ★★★★★
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 5 -->
+
+      <div class="testimonial-slide">
+        <div class="testimonial-slide-content">
+          <div class="quote-icon"><i class="fa-solid fa-quote-left" style="color: #ffffff;"></i></div>
+
+          <p class="testimonial-text">
+            We had the pleasure of working with Milena (and the rest of Realty Utopia team) when we were looking to buy
+            our first home, and we couldn’t be more pleased with the experience. From the start, Milena was incredibly
+            responsive, attentive, and knowledgeable. They took the time to understand exactly what I was looking for in
+            a home and made sure to only show properties that matched our needs and budget.
+            What impressed us most was their deep knowledge of the local market. They provided valuable insights on the
+            neighborhoods we were considering, from property values to schools to community vibes. It really felt like
+            they had our best interests in mind every step of the way.
+            We recommend them 100% </p>
+
+          <p class="testimonial-author">-
+            jaume vicens</p>
+
+          <div class="testimonial-stars">
+            ★★★★★
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Navigation Buttons -->
+      <button id="prev">❮</button>
+      <button id="next">❯</button>
+    </div>
+  </div>
+
+
+
+
+  <section class="why-realty-utopia">
+    <div class="overlay">
+      <div class="content">
+        <h2>Why Realty <span class="highlight">Utopia?</span></h2>
+        <p>
+          We are a luxury brokerage connecting discerning international clients to the most incredible and exclusive
+          homes in Dubai and around the globe. </p>
+        <p>
+          We enjoy an enviable reputation as trusted advisors to our clients, providing good old-fashioned honest
+          services. Whether you are a buyer or a seller, we help you make informed decision.</p>
+        <p>Ultimately, we aim to provide the most seamless customer experience, from the moment you connect with us to
+          the completion of a successful transaction.
+
+        </p>
+        <p>Our Mission is to deliver a customer experience that is truly exceptional. We firmly ensure that every member
+          of our team is an expert in their chosen area and can provide the most comprehensive and trusted property
+          advice to their clients.
+
+        </p>
+        <p>Our Mission is to deliver a customer experience that is truly exceptional. We firmly ensure that every member
+          of our team is an expert in their chosen area and can provide the most comprehensive and trusted property
+          advice to their clients.
+
+        </p>
+
+        <a href="tel:+971501815061" title="Enquiry" class="enquiry-button">
+          <i class="fas fa-phone-alt"></i> Make an Enquiry
+        </a>
+
+      </div>
+    </div>
+  </section>
+  <script>
+    const slides = document.querySelectorAll('.testimonial-slide');
+    let index = 0;
+
+    const showSlide = (i) => {
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[i].classList.add('active');
+    };
+
+    document.getElementById('next').addEventListener('click', () => {
+      index = (index + 1) % slides.length;
+      showSlide(index);
+    });
+
+    document.getElementById('prev').addEventListener('click', () => {
+      index = (index - 1 + slides.length) % slides.length;
+      showSlide(index);
+    });
+
+    // Show initial slide
+    showSlide(index);
+  </script>
+
+  <script>
+    const track = document.querySelector('.slider-track');
+    const nextBtn = document.querySelector('.slider-btn.next');
+    const prevBtn = document.querySelector('.slider-btn.prev');
+    const cards = Array.from(document.querySelectorAll('.service-card'));
+    const cardCount = cards.length;
+
+    const gap = 24; // gap between cards (px)
+    let cardWidth = 0;
+    let slideIndex = 0;
+
+    function setupClones() {
+      // Clone first few cards and append to end
+      for (let i = 0; i < visibleCardsCount(); i++) {
+        const clone = cards[i].cloneNode(true);
+        clone.classList.add('clone');
+        track.appendChild(clone);
+      }
+
+      // Clone last few cards and prepend to start
+      for (let i = cardCount - visibleCardsCount(); i < cardCount; i++) {
+        const clone = cards[i].cloneNode(true);
+        clone.classList.add('clone');
+        track.insertBefore(clone, track.firstChild);
+      }
+    }
+
+    function cardWidthWithGap() {
+      return cardWidth + gap;
+    }
+
+    function visibleCardsCount() {
+      return Math.floor(track.parentElement.offsetWidth / (cardWidth + gap));
+    }
+
+    function updateCardWidth() {
+      cardWidth = cards[0].offsetWidth;
+    }
+
+    let clonesAdded = false;
+    function init() {
+      updateCardWidth();
+
+      if (!clonesAdded) {
+        setupClones();
+        clonesAdded = true;
+      }
+
+      // Set initial position to first original slide (after prepended clones)
+      slideIndex = visibleCardsCount();
+      setPosition();
+    }
+
+    function setPosition(animate = true) {
+      if (animate) {
+        track.style.transition = 'transform 0.3s ease';
+      } else {
+        track.style.transition = 'none';
+      }
+
+      const distance = slideIndex * cardWidthWithGap();
+      track.style.transform = `translateX(-${distance}px)`;
+    }
+
+    function moveToNext() {
+      slideIndex++;
+      setPosition();
+
+      // If we moved past last original slide, jump instantly to original first slide
+      if (slideIndex >= cardCount + visibleCardsCount()) {
+        setTimeout(() => {
+          slideIndex = visibleCardsCount();
+          setPosition(false);
+        }, 300); // must match CSS transition duration
+      }
+    }
+
+    function moveToPrev() {
+      slideIndex--;
+      setPosition();
+
+      // If we moved before first original slide, jump instantly to last original slide
+      if (slideIndex < visibleCardsCount()) {
+        setTimeout(() => {
+          slideIndex = cardCount + visibleCardsCount() - 1;
+          setPosition(false);
+        }, 300);
+      }
+    }
+
+    nextBtn.addEventListener('click', moveToNext);
+    prevBtn.addEventListener('click', moveToPrev);
+
+    window.addEventListener('resize', () => {
+      updateCardWidth();
+      setPosition(false);
+    });
+
+    // Initialize on DOM ready
+    window.addEventListener('load', init);
+
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const container = document.getElementById('fade-text');
+      if (!container) return;
+
+      const text = container.textContent.trim();
+      container.textContent = '';
+
+      for (let char of text) {
+        const span = document.createElement('span');
+        span.innerHTML = char === ' ' ? '&nbsp;' : char;  // Keep spaces visible
+        container.appendChild(span);
+      }
+
+      const spans = container.querySelectorAll('span');
+      spans.forEach((span, i) => {
+        setTimeout(() => {
+          span.classList.add('visible');
+        }, i * 40); // Speed of animation
+      });
+    });
+  </script>
+
+
+  {% endblock %}
+
+</body>

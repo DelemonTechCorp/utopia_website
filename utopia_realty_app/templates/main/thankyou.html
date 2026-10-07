@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Thank You | Realty Utopia {% endblock %}
+{% load static %}
+{% load humanize %}
+
+  {% block content %}
+<section class="thank-you">
+    <div class="thank-you-container">
+    <div class="thank-you-icon">🎉</div>
+    <h1>Thank You!</h1>
+    <p>Your submission has been received.<br>We’ll get back to you shortly.</p>
+    <a href="{% url 'index' %}" class="btn">Go Back to Home</a>
+  </div>
+</section>
+  {% endblock %}
+

@@ -1,0 +1,75 @@
+
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% load static %}
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+  <section class="post-hero-section">
+    <div class="post-overlay">
+        <h1> Insights & Inspiration</h1>
+        <p>Discover insights, tutorials, and inspiration from our team of experts</p>
+    </div>
+</section>
+
+<section class="post-section">
+    <div class="container">
+
+        {% if featured_post %}
+        <div class="post-featured">
+            <img src="{{ featured_post.image.url }}" alt="{{ featured_post.title }}">
+            <div class="post-content">
+                <span class="tag">Latest</span>
+                <h2>{{ featured_post.title }}</h2>
+                <p>{{ featured_post.description }}</p>
+                <div class="meta">
+                    <span>📅 {{ featured_post.created_at|date:"m/d/Y" }}</span>
+                </div>
+                <a href="{{ featured_post.get_absolute_url }}" class="read-more">Read Full Story →</a>
+            </div>
+        </div>
+        {% endif %}
+
+        {# Blog posts grid #}
+        <div class="post-grid">
+            {% for post in page_obj %}
+            <div class="post-card">
+                <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                <div class="post-card-body">
+                    <h3>{{ post.title }}</h3>
+                    <p>{{ post.description }}</p>
+                    <div class="meta">
+                        <span>📅 {{ post.created_at|date:"m/d/Y" }}</span>
+                        <a href="{{ post.get_absolute_url }}" class="read-more">Read More →</a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p>No posts found.</p>
+            {% endfor %}
+        </div>
+        <div class="pagination">
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}" class="button">← Prev</a>
+    {% endif %}
+
+    <span class="current-page">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" class="button">Next →</a>
+    {% endif %}
+</div>
+
+    </div>
+</section>
+
+    {% endblock %}
+</body>
+
+</html>

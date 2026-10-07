@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@10/swiper-bundle.min.css" />
+
+  <!-- AOS CSS (optional) -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+  <!-- Font Awesome (for quote icon) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <style>
+    .review-section {
+      padding: 60px 20px;
+      font-family: "Oxygen", sans-serif;
+      text-align: center;
+      background-image: url('https://t4.ftcdn.net/jpg/03/70/13/39/360_F_370133990_aJD1Crkjxs8VfDFkZtceEY1HUME0z0eQ.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    .review-title {
+      font-size: 2.5rem;
+      color: #004080;
+      margin-bottom: 40px;
+    }
+
+    /* The Swiper container */
+    .review-slider.swiper {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* Each slide */
+    .swiper-slide {
+      /* Let Swiper manage width; removing !important avoids conflicts */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Testimonial card */
+    .testimonial-card {
+      background-image: url('https://t3.ftcdn.net/jpg/04/23/41/14/360_F_423411429_PErrqnU7Vr8uYt3ZKIZ4pWvJsYijKaAZ.jpg');
+      max-width: 850px;
+      height: 50vh;
+      border-radius: 16px;
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.08);
+      position: relative;
+      padding: 40px 30px 30px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+      color: #004080;
+    }
+
+    .quote-icon {
+      width: 70px;
+      height: 70px;
+      background: #004080;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      color: #fdb016;
+      font-weight: bold;
+      position: absolute;
+      top: -35px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+
+    .testimonial-content p {
+      font-size: 20px;
+      font-weight: 300;
+      margin: 28px 0 15px;
+      max-width: 700px;
+    }
+    .author { font-size: 18px; color: #fdb016; }
+    .stars { color: #fbbc05; font-size: 20px; margin-bottom: 15px; }
+
+    .swiper-button-next,
+    .swiper-button-prev { color: #004080; font-weight: 100; }
+    .swiper-pagination-bullet { background-color: #004080; }
+
+    /* --- Emergency Swiper essentials (in case your global CSS overrides Swiper’s CSS) --- */
+    .swiper { overflow: hidden; }
+    .swiper-wrapper { display: flex; transition-property: transform; }
+    .swiper-slide { flex-shrink: 0; }
+
+    @media (max-width: 768px) {
+      .testimonial-card { height: auto; padding: 2rem 1rem; }
+      .testimonial-content p { font-size: 1rem; }
+      .review-title { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<section class="review-section">
+  <h2 class="review-title" data-aos="fade-up">What Our Clients Say</h2>
+
+  <div class="swiper review-slider" data-aos="fade-up">
+    <div class="swiper-wrapper">
+
+      <!-- Slide 1 -->
+      <div class="swiper-slide">
+        <div class="testimonial-card" id="test1">
+          <div class="quote-icon"><i class="fa-solid fa-quote-left" style="color: #ffffff;"></i></div>
+          <div class="testimonial-content">
+            <p>"Huge thanks to the team at Realty Utopia… The process was seamless…"</p>
+            <div class="author">- dane edmonds<br></div>
+            <div class="stars">★ ★ ★ ★ ★</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="swiper-slide">
+        <div class="testimonial-card" id="test2">
+          <div class="quote-icon"><i class="fa-solid fa-quote-left" style="color: #ffffff;"></i></div>
+          <div class="testimonial-content">
+            <p>"Huge thanks to the team at Realty Utopia… The process was seamless…"</p>
+            <div class="author">- dane edmonds<br></div>
+            <div class="stars">★ ★ ★ ★ ★</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="swiper-slide">
+        <div class="testimonial-card" id="test3">
+          <div class="quote-icon"><i class="fa-solid fa-quote-left" style="color: #ffffff;"></i></div>
+          <div class="testimonial-content">
+            <p>"Huge thanks to the team at Realty Utopia… The process was seamless…"</p>
+            <div class="author"><span>&ndash;</span> dane edmonds<br></div>
+            <div class="stars">★ ★ ★ ★ ★</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Navigation -->
+    <div class="swiper-button-prev" aria-label="Previous"></div>
+    <div class="swiper-button-next" aria-label="Next"></div>
+
+    <!-- Pagination (dots) -->
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+<!-- Scripts at the end -->
+<script src="https://unpkg.com/swiper@10/swiper-bundle.min.js" defer></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    // If this logs 'function', Swiper loaded fine
+    console.log('Swiper type:', typeof Swiper);
+
+    const swiper = new Swiper('.review-slider', {
+      slidesPerView: 1,
+      loop: true,
+      spaceBetween: 20,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      // Helps when slider is inside animated/hidden containers
+      observer: true,
+      observeParents: true,
+    });
+
+    if (window.AOS) AOS.init();
+  });
+</script>
+</body>
+</html>

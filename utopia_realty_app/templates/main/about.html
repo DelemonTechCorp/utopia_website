@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% extends 'base.html' %}
+    {% block title %}About Realty Utopia {% endblock %}
+    {% load static %}
+    {% load humanize %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | Realty Utopia</title>
+</head>
+
+<body>
+    {% block content %}
+
+    <header class="intro-section">
+        <div class="wrapper ">
+            <div class="intro-content">
+                <h1>Meet Realty Utopia <br><span class="highlight"> Your Boutique Real Estate Partner</span></h1>
+                <p>With over a decade of experience and an Italian boutique-style approach, Realty Utopia delivers
+                    expert guidance for investing, buying, selling, or renting.
+                    We simplify real estate - prioritizing your success with integrity, innovation, and excellence.</p>
+            </div>
+        </div>
+    </header>
+    <section class="story-section">
+        <!-- Left Text -->
+        <div class="story-text">
+            <h2>Our <span class="highlight">Story</span></h2>
+            <p>At Realty Utopia Real Estate LLC, we are more than just a real estate agency - we are your dedicated
+                partners in property success. Founded with a vision to transform the real estate journey, we bring a
+                boutique-style, client-first philosophy inspired by Italian excellence to every interaction.
+
+                With over a decade of industry experience in Dubai and beyond, our team is committed to making real
+                estate simple, seamless, and rewarding. Whether you’re an investor seeking profitable opportunities, a
+                homeowner looking to sell, a buyer searching for the perfect place, or a tenant in need of a trusted
+                advisor - we tailor every step to your unique needs.</p>
+            <p>We don’t just handle transactions - we build long-term relationships grounded in trust, transparency, and
+                results. Every client benefits from strategic insights, deep market knowledge, and personalized service
+                designed to exceed expectations.
+            </p>
+            <a href="#" class="story-btn">View Our Portfolio →</a>
+        </div>
+
+        <!-- Right Stats -->
+        <div class="story-stats">
+            <div class="stats-box">
+                <i class="fas fa-building gold-icon"></i>
+                <div class="stats-number">200+</div>
+                <div class="stats-label">Projects Completed</div>
+            </div>
+
+            <div class="stats-box">
+                <i class="fas fa-users blue-icon"></i>
+                <div class="stats-number">5000+
+
+                </div>
+                <div class="stats-label">Satisfied Clients</div>
+            </div>
+
+            <div class="stats-box">
+                <i class="fas fa-bullseye blue-icon"></i>
+                <div class="stats-number">100%</div>
+                <div class="stats-label">Satisfaction Rate</div>
+            </div>
+            <div class="stats-box">
+                <i class="fas fa-award gold-icon"></i>
+                <div class="stats-number">15+</div>
+                <div class="stats-label">Years Experience</div>
+            </div>
+        </div>
+    </section>
+    <section class="vision-mission">
+        <div class="vision-mission-part">
+            <div class="vision-part">
+
+                <div class="vision-part-content">
+                    <h3><span style="color: #004080;">Our</span> <span class="highlight">Vision</span></h3>
+                    <p>
+                        To be the top boutique real estate agency, setting new standards for service and market
+                        expertise.
+                        We aim to expand globally, continuously innovating to provide unmatched, client-focused
+                        solutions
+                        that redefine real estate success.
+                    </p>
+                </div>
+            </div>
+            <div class="mission-part">
+                <div class="mission-part-content">
+                    <h3><span class="highlight">Our</span> <span class="light">Mission</span></h3>
+                    <p>
+                        To provide a smooth, rewarding real estate experience. We focus on client needs, offering expert
+                        guidance and personalized solutions to turn property aspirations into reality.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="core-values">
+        <div class="wrapper">
+            <h2>Our <span class="highlight">Values</span></h2>
+            <ul class="value-list">
+                <li><strong>Client-First:</strong> Your needs guide every decision.</li>
+                <li><strong>Integrity:</strong> We uphold honesty and transparency.</li>
+                <li><strong>Innovation:</strong> We stay ahead of trends for the best solutions.</li>
+                <li><strong>Excellence:</strong> We strive for top-tier service and long-term relationships.</li>
+            </ul>
+        </div>
+    </section>
+    <section class="get-in-touch">
+        <div class="wrapper contact-grid">
+            <!-- Left content -->
+            <div class="contact-text">
+                <h2>Get in <span class="highlight">Touch</span></h2>
+                <p>
+                    Ready to take the next step in your real estate journey? Whether you're buying, selling, or just
+                    exploring options — we're here to help.
+                </p>
+                <div class="contact-info">
+                    <p><i class="fas fa-phone"></i><a href="tel:+971501815061">+971 50 181 5061</a></p>
+
+                    <p><i class="fas fa-envelope"></i><a href="mailto:info@realtyutopia.com">info@realtyutopia.com</a>
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Right email input -->
+            <div class="contact-form">
+                <form action="" method="post">
+                    <input type="name" id="name" name="name" placeholder="Enter your name" required>
+                    <input type="text" id="phone" name="phone" placeholder="Enter your phone" required>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <input type="text" id="message" name="message" placeholder="Enter your message" required>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+
+                    if (entry.target.classList.contains('slide-left') || entry.target.classList.contains('slide-right')) {
+                        entry.target.classList.add('show');
+                        observer.unobserve(entry.target);
+                    }
+
+                    if (entry.target.classList.contains('core-values')) {
+                        const listItems = entry.target.querySelectorAll('li');
+                        listItems.forEach((item, index) => {
+                            setTimeout(() => {
+                                item.classList.add('show');
+                            }, index * 200);
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        // Observe all .slide-left, .slide-right, and .core-values sections
+        document.querySelectorAll('.slide-left, .slide-right, .core-values').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+
+
+    {% endblock %}
+
+</body>
+
+</html>
